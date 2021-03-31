@@ -1,4 +1,4 @@
-import { G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, Q as SvelteComponentDev, aw as create_slot, R as validate_slots, U as element, X as claim_element, Y as children, $ as detach_dev, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a6 as _slicedToArray, ax as update_slot, af as transition_in, ag as transition_out, _ as _toConsumableArray, F as _typeof, ay as createCommonjsModule, az as writable, aA as readable, aB as regenerator, c as _defineProperty, aC as add_render_callback, aD as create_in_transition } from './client.cc863f98.js';
+import { G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, Q as SvelteComponentDev, aw as create_slot, R as validate_slots, U as element, X as claim_element, Y as children, $ as detach_dev, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a6 as _slicedToArray, ax as update_slot, af as transition_in, ag as transition_out, _ as _toConsumableArray, F as _typeof, ay as createCommonjsModule, az as writable, aA as readable, aB as regenerator, c as _defineProperty, aC as add_render_callback, aD as create_in_transition } from './client.2dcd6f71.js';
 
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
@@ -14448,4 +14448,12 @@ var Page = /*#__PURE__*/function (_SvelteComponentDev) {
   return Page;
 }(SvelteComponentDev);
 
-export { Page as P, TopBar as T, _objectWithoutProperties as _, actions as a, _asyncToGenerator as b, cubicOut as c, stripNonDigits as d, envelopes as e, formatMoney as f, expoOut as g, expoIn as h, isClient as i, luxon as l, scale as s };
+var BASE_URL = 'lopy-staging';
+var ROUTES = {
+  HOME: "/".concat(BASE_URL),
+  ENVELOPES: "/".concat(BASE_URL, "/envelopes"),
+  ENVELOPE: "/".concat(BASE_URL, "/envelope"),
+  EDIT: "/".concat(BASE_URL, "/envelope/edit")
+};
+
+export { Page as P, ROUTES as R, TopBar as T, _objectWithoutProperties as _, actions as a, _asyncToGenerator as b, cubicOut as c, stripNonDigits as d, envelopes as e, formatMoney as f, expoOut as g, expoIn as h, isClient as i, luxon as l, scale as s };

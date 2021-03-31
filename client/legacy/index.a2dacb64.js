@@ -1,6 +1,6 @@
-import { d as decrementActiveDropZoneCount, _ as _toConsumableArray, S as SHADOW_ITEM_MARKER_PROPERTY_NAME, I as ITEM_ID_KEY, a as SHADOW_PLACEHOLDER_ITEM_ID, i as incrementActiveDropZoneCount, s as styleDraggable, m as morphDraggedElementToBeLike, b as decorateShadowEl, c as _defineProperty, e as createDraggedElementFrom, f as styleActiveDropZones, p as preventShrinking, g as dispatchConsiderEvent, T as TRIGGERS, h as SOURCES, j as areObjectsShallowEqual, k as areArraysShallowEqualSameOrder, l as styleInactiveDropZones, n as moveDraggedElementToWasDroppedState, o as getBoundingRectNoTransforms, q as hideOriginalDragTarget, r as armWindowScroller, D as DRAGGED_ENTERED_EVENT_NAME, t as DRAGGED_LEFT_EVENT_NAME, u as DRAGGED_OVER_INDEX_EVENT_NAME, v as DRAGGED_LEFT_DOCUMENT_EVENT_NAME, w as observe, x as disarmWindowScroller, y as unobserve, z as DRAGGED_LEFT_TYPES, A as dispatchFinalizeEvent, B as unDecorateShadowElement, C as dndzone$2, E as toString, F as _typeof, G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, P as _createClass, Q as SvelteComponentDev, R as validate_slots, U as element, V as text, W as space, X as claim_element, Y as children, Z as claim_text, $ as detach_dev, a0 as claim_space, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a4 as append_dev, a5 as listen_dev, a6 as _slicedToArray, a7 as set_data_dev, a8 as noop, a9 as bubble, aa as validate_each_argument, ab as validate_each_keys, ac as create_component, ad as claim_component, ae as mount_component, af as transition_in, ag as transition_out, ah as destroy_component, ai as validate_store, aj as component_subscribe, ak as goto, al as assign, am as get_spread_update, an as get_spread_object, ao as action_destroyer, ap as group_outros, aq as update_keyed_each, ar as check_outros, as as is_function, at as run_all, au as set_store_value, av as outro_and_destroy_block } from './client.cc863f98.js';
-import { _ as _objectWithoutProperties, f as formatMoney, P as Page, T as TopBar, e as envelopes, a as actions } from './Page.41c1b79f.js';
-import { P as PlusIcon } from './PlusIcon.0d2fd801.js';
+import { d as decrementActiveDropZoneCount, _ as _toConsumableArray, S as SHADOW_ITEM_MARKER_PROPERTY_NAME, I as ITEM_ID_KEY, a as SHADOW_PLACEHOLDER_ITEM_ID, i as incrementActiveDropZoneCount, s as styleDraggable, m as morphDraggedElementToBeLike, b as decorateShadowEl, c as _defineProperty, e as createDraggedElementFrom, f as styleActiveDropZones, p as preventShrinking, g as dispatchConsiderEvent, T as TRIGGERS, h as SOURCES, j as areObjectsShallowEqual, k as areArraysShallowEqualSameOrder, l as styleInactiveDropZones, n as moveDraggedElementToWasDroppedState, o as getBoundingRectNoTransforms, q as hideOriginalDragTarget, r as armWindowScroller, D as DRAGGED_ENTERED_EVENT_NAME, t as DRAGGED_LEFT_EVENT_NAME, u as DRAGGED_OVER_INDEX_EVENT_NAME, v as DRAGGED_LEFT_DOCUMENT_EVENT_NAME, w as observe, x as disarmWindowScroller, y as unobserve, z as DRAGGED_LEFT_TYPES, A as dispatchFinalizeEvent, B as unDecorateShadowElement, C as dndzone$2, E as toString, F as _typeof, G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, P as _createClass, Q as SvelteComponentDev, R as validate_slots, U as element, V as text, W as space, X as claim_element, Y as children, Z as claim_text, $ as detach_dev, a0 as claim_space, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a4 as append_dev, a5 as listen_dev, a6 as _slicedToArray, a7 as set_data_dev, a8 as noop, a9 as bubble, aa as validate_each_argument, ab as validate_each_keys, ac as create_component, ad as claim_component, ae as mount_component, af as transition_in, ag as transition_out, ah as destroy_component, ai as validate_store, aj as component_subscribe, ak as goto, al as assign, am as get_spread_update, an as get_spread_object, ao as action_destroyer, ap as group_outros, aq as update_keyed_each, ar as check_outros, as as is_function, at as run_all, au as set_store_value, av as outro_and_destroy_block } from './client.2dcd6f71.js';
+import { _ as _objectWithoutProperties, f as formatMoney, P as Page, T as TopBar, e as envelopes, a as actions, R as ROUTES } from './constants.9d4b278b.js';
+import { P as PlusIcon } from './PlusIcon.d6275220.js';
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -978,7 +978,7 @@ function get_each_context(ctx, list, i) {
   var child_ctx = ctx.slice();
   child_ctx[6] = list[i];
   return child_ctx;
-} // (23:2) <TopBar>
+} // (24:2) <TopBar>
 
 
 function create_default_slot_1(ctx) {
@@ -1013,7 +1013,7 @@ function create_default_slot_1(ctx) {
     },
     h: function hydrate() {
       attr_dev(div, "class", "cursor-pointer");
-      add_location(div, file$1, 24, 4, 677);
+      add_location(div, file$1, 25, 4, 721);
     },
     m: function mount(target, anchor) {
       insert_dev(target, t, anchor);
@@ -1050,11 +1050,11 @@ function create_default_slot_1(ctx) {
     block: block,
     id: create_default_slot_1.name,
     type: "slot",
-    source: "(23:2) <TopBar>",
+    source: "(24:2) <TopBar>",
     ctx: ctx
   });
   return block;
-} // (40:4) {#each $envelopes as envelope (envelope._id)}
+} // (41:4) {#each $envelopes as envelope (envelope._id)}
 
 
 function create_each_block(key_1, ctx) {
@@ -1107,7 +1107,7 @@ function create_each_block(key_1, ctx) {
     },
     h: function hydrate() {
       attr_dev(span, "class", "outline-none cursor-unset");
-      add_location(span, file$1, 40, 6, 1101);
+      add_location(span, file$1, 41, 6, 1146);
       this.first = span;
     },
     m: function mount(target, anchor) {
@@ -1143,11 +1143,11 @@ function create_each_block(key_1, ctx) {
     block: block,
     id: create_each_block.name,
     type: "each",
-    source: "(40:4) {#each $envelopes as envelope (envelope._id)}",
+    source: "(41:4) {#each $envelopes as envelope (envelope._id)}",
     ctx: ctx
   });
   return block;
-} // (22:0) <Page>
+} // (23:0) <Page>
 
 
 function create_default_slot(ctx) {
@@ -1220,7 +1220,7 @@ function create_default_slot(ctx) {
     },
     h: function hydrate() {
       attr_dev(div, "class", "w-full p-4 flex flex-col space-y-3");
-      add_location(div, file$1, 29, 2, 806);
+      add_location(div, file$1, 30, 2, 851);
     },
     m: function mount(target, anchor) {
       mount_component(topbar, target, anchor);
@@ -1325,7 +1325,7 @@ function create_default_slot(ctx) {
     block: block,
     id: create_default_slot.name,
     type: "slot",
-    source: "(22:0) <Page>",
+    source: "(23:0) <Page>",
     ctx: ctx
   });
   return block;
@@ -1431,7 +1431,7 @@ function instance$1($$self, $$props, $$invalidate) {
   });
 
   var click_handler = function click_handler() {
-    return goto("envelope/edit/new");
+    return goto("".concat(ROUTES.EDIT, "/new"));
   };
 
   var click_handler_1 = function click_handler_1(envelope) {
@@ -1448,6 +1448,7 @@ function instance$1($$self, $$props, $$invalidate) {
       goto: goto,
       Page: Page,
       dndzone: dndzone$1,
+      ROUTES: ROUTES,
       handleEnvelopeClicked: handleEnvelopeClicked,
       handleDnd: handleDnd,
       $envelopes: $envelopes,

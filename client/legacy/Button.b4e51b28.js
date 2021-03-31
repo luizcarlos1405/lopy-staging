@@ -1,4 +1,4 @@
-import { G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, P as _createClass, Q as SvelteComponentDev, R as validate_slots, aE as svg_element, X as claim_element, Y as children, $ as detach_dev, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a4 as append_dev, a6 as _slicedToArray, a8 as noop, aN as compute_rest_props, al as assign, aO as exclude_internal_props, aH as empty, a9 as bubble, aK as binding_callbacks, U as element, aP as set_attributes, aQ as set_input_value, a5 as listen_dev, ao as action_destroyer, am as get_spread_update, at as run_all, aw as create_slot, aJ as toggle_class, ax as update_slot, af as transition_in, ag as transition_out } from './client.cc863f98.js';
+import { G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, P as _createClass, Q as SvelteComponentDev, R as validate_slots, aE as svg_element, X as claim_element, Y as children, $ as detach_dev, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a4 as append_dev, a6 as _slicedToArray, a8 as noop, aN as compute_rest_props, al as assign, aO as exclude_internal_props, aH as empty, a9 as bubble, aK as binding_callbacks, U as element, aP as set_attributes, aQ as set_input_value, a5 as listen_dev, ao as action_destroyer, am as get_spread_update, at as run_all, aw as create_slot, aJ as toggle_class, ax as update_slot, af as transition_in, ag as transition_out } from './client.2dcd6f71.js';
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
@@ -832,12 +832,4 @@ var Button = /*#__PURE__*/function (_SvelteComponentDev) {
   return Button;
 }(SvelteComponentDev);
 
-var BASE_URL = 'lopy-staging';
-var ROUTES = {
-  HOME: "/".concat(BASE_URL),
-  ENVELOPES: "/".concat(BASE_URL, "/envelopes"),
-  ENVELOPE: "/".concat(BASE_URL, "/envelope"),
-  EDIT: "/".concat(BASE_URL, "/envelope/edit")
-};
-
-export { Button as B, ROUTES as R, TextField as T, TrashIcon as a };
+export { Button as B, TextField as T, TrashIcon as a };

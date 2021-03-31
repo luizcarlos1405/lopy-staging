@@ -1,6 +1,6 @@
-import { G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, P as _createClass, Q as SvelteComponentDev, R as validate_slots, a6 as _slicedToArray, aF as globals, aa as validate_each_argument, U as element, W as space, X as claim_element, Y as children, $ as detach_dev, a0 as claim_space, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a4 as append_dev, ao as action_destroyer, a5 as listen_dev, aG as destroy_each, at as run_all, aH as empty, aI as HtmlTag, aJ as toggle_class, V as text, Z as claim_text, a7 as set_data_dev, a8 as noop, aB as regenerator, ac as create_component, ad as claim_component, ae as mount_component, af as transition_in, ag as transition_out, ah as destroy_component, ai as validate_store, aj as component_subscribe, ak as goto, aK as binding_callbacks, aL as bind, aM as add_flush_callback, c as _defineProperty } from './client.bd3b66fc.js';
-import { P as Page, b as _asyncToGenerator, T as TopBar, e as envelopes, a as actions } from './Page.68e2f107.js';
-import { T as TextField, B as Button, a as TrashIcon } from './Button.e400814a.js';
+import { G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, P as _createClass, Q as SvelteComponentDev, R as validate_slots, a6 as _slicedToArray, aF as globals, aa as validate_each_argument, U as element, W as space, X as claim_element, Y as children, $ as detach_dev, a0 as claim_space, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a4 as append_dev, ao as action_destroyer, a5 as listen_dev, aG as destroy_each, at as run_all, aH as empty, aI as HtmlTag, aJ as toggle_class, V as text, Z as claim_text, a7 as set_data_dev, a8 as noop, aB as regenerator, ac as create_component, ad as claim_component, ae as mount_component, af as transition_in, ag as transition_out, ah as destroy_component, ai as validate_store, aj as component_subscribe, ak as goto, aK as binding_callbacks, aL as bind, aM as add_flush_callback, c as _defineProperty } from './client.cc863f98.js';
+import { P as Page, b as _asyncToGenerator, T as TopBar, e as envelopes, a as actions } from './Page.41c1b79f.js';
+import { T as TextField, B as Button, a as TrashIcon, R as ROUTES } from './constants.5ddf1c58.js';
 
 var dataByEmoji = {
   "😀": {
@@ -15424,7 +15424,7 @@ function _isNativeReflectConstruct$1() { if (typeof Reflect === "undefined" || !
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var file$1 = "src/routes/envelope/edit/[id].svelte"; // (30:4) {#if envelope}
+var file$1 = "src/routes/envelope/edit/[id].svelte"; // (31:4) {#if envelope}
 
 function create_if_block$1(ctx) {
   var div;
@@ -15455,7 +15455,7 @@ function create_if_block$1(ctx) {
     },
     h: function hydrate() {
       attr_dev(div, "class", "cursor-pointer");
-      add_location(div, file$1, 30, 6, 866);
+      add_location(div, file$1, 31, 6, 916);
     },
     m: function mount(target, anchor) {
       insert_dev(target, div, anchor);
@@ -15490,11 +15490,11 @@ function create_if_block$1(ctx) {
     block: block,
     id: create_if_block$1.name,
     type: "if",
-    source: "(30:4) {#if envelope}",
+    source: "(31:4) {#if envelope}",
     ctx: ctx
   });
   return block;
-} // (27:2) <TopBar>
+} // (28:2) <TopBar>
 
 
 function create_default_slot_3(ctx) {
@@ -15545,11 +15545,11 @@ function create_default_slot_3(ctx) {
     block: block,
     id: create_default_slot_3.name,
     type: "slot",
-    source: "(27:2) <TopBar>",
+    source: "(28:2) <TopBar>",
     ctx: ctx
   });
   return block;
-} // (60:6) <Button         on:click="{() => {           if (id !== 'new') {             goto(`/envelope/${id}`);             return;           }           goto('/');         }}"       >
+} // (61:6) <Button         on:click="{() => {           if (id !== 'new') {             goto(`${ROUTES.EDIT}/${id}`);             return;           }           goto(ROUTES.HOME);         }}"       >
 
 
 function create_default_slot_2(ctx) {
@@ -15572,11 +15572,11 @@ function create_default_slot_2(ctx) {
     block: block,
     id: create_default_slot_2.name,
     type: "slot",
-    source: "(60:6) <Button         on:click=\\\"{() => {           if (id !== 'new') {             goto(`/envelope/${id}`);             return;           }           goto('/');         }}\\\"       >",
+    source: "(61:6) <Button         on:click=\\\"{() => {           if (id !== 'new') {             goto(`${ROUTES.EDIT}/${id}`);             return;           }           goto(ROUTES.HOME);         }}\\\"       >",
     ctx: ctx
   });
   return block;
-} // (71:6) <Button         on:click="{() => {           if (name) {             $actions.saveEnvelope({ ...envelope, name, emoji });             goto('/');           }         }}"       >
+} // (72:6) <Button         on:click="{() => {           if (name) {             $actions.saveEnvelope({ ...envelope, name, emoji });             goto(ROUTES.HOME);           }         }}"       >
 
 
 function create_default_slot_1(ctx) {
@@ -15599,11 +15599,11 @@ function create_default_slot_1(ctx) {
     block: block,
     id: create_default_slot_1.name,
     type: "slot",
-    source: "(71:6) <Button         on:click=\\\"{() => {           if (name) {             $actions.saveEnvelope({ ...envelope, name, emoji });             goto('/');           }         }}\\\"       >",
+    source: "(72:6) <Button         on:click=\\\"{() => {           if (name) {             $actions.saveEnvelope({ ...envelope, name, emoji });             goto(ROUTES.HOME);           }         }}\\\"       >",
     ctx: ctx
   });
   return block;
-} // (26:0) <Page>
+} // (27:0) <Page>
 
 
 function create_default_slot(ctx) {
@@ -15762,13 +15762,13 @@ function create_default_slot(ctx) {
     },
     h: function hydrate() {
       attr_dev(div0, "class", "flex w-full items-center pl-2 border rounded-3xl space-x-2 border-background");
-      add_location(div0, file$1, 46, 6, 1247);
+      add_location(div0, file$1, 47, 6, 1305);
       attr_dev(div1, "class", "bg-primary border-box flex p-4 rounded-full space-x-2 space-y-1 ");
-      add_location(div1, file$1, 43, 4, 1151);
+      add_location(div1, file$1, 44, 4, 1209);
       attr_dev(div2, "class", "text-light flex justify-around");
-      add_location(div2, file$1, 58, 4, 1695);
+      add_location(div2, file$1, 59, 4, 1753);
       attr_dev(div3, "class", "flex flex-col space-y-2 mt-auto justify-end p-4");
-      add_location(div3, file$1, 42, 2, 1085);
+      add_location(div3, file$1, 43, 2, 1143);
     },
     m: function mount(target, anchor) {
       mount_component(topbar, target, anchor);
@@ -15885,7 +15885,7 @@ function create_default_slot(ctx) {
     block: block,
     id: create_default_slot.name,
     type: "slot",
-    source: "(26:0) <Page>",
+    source: "(27:0) <Page>",
     ctx: ctx
   });
   return block;
@@ -16007,7 +16007,7 @@ function instance$1($$self, $$props, $$invalidate) {
 
   var click_handler = function click_handler() {
     $actions.deleteEnvelope(envelope);
-    goto("/");
+    goto(ROUTES.HOME);
   };
 
   function emojipicker_value_binding(value) {
@@ -16022,11 +16022,11 @@ function instance$1($$self, $$props, $$invalidate) {
 
   var click_handler_1 = function click_handler_1() {
     if (id !== "new") {
-      goto("/envelope/".concat(id));
+      goto("".concat(ROUTES.EDIT, "/").concat(id));
       return;
     }
 
-    goto("/");
+    goto(ROUTES.HOME);
   };
 
   var click_handler_2 = function click_handler_2() {
@@ -16035,7 +16035,7 @@ function instance$1($$self, $$props, $$invalidate) {
         name: name,
         emoji: emoji
       }));
-      goto("/");
+      goto(ROUTES.HOME);
     }
   };
 
@@ -16055,6 +16055,7 @@ function instance$1($$self, $$props, $$invalidate) {
       TopBar: TopBar,
       TrashIcon: TrashIcon,
       Page: Page,
+      ROUTES: ROUTES,
       id: id,
       envelope: envelope,
       name: name,

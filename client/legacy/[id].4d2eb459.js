@@ -1,7 +1,7 @@
-import { G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, P as _createClass, Q as SvelteComponentDev, R as validate_slots, aE as svg_element, X as claim_element, Y as children, $ as detach_dev, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a4 as append_dev, a6 as _slicedToArray, a8 as noop, as as is_function, aa as validate_each_argument, ab as validate_each_keys, U as element, V as text, W as space, Z as claim_text, a0 as claim_space, aJ as toggle_class, ao as action_destroyer, a5 as listen_dev, a7 as set_data_dev, af as transition_in, ap as group_outros, ag as transition_out, ar as check_outros, aR as fix_position, aS as add_transform, aT as create_animation, aC as add_render_callback, aD as create_in_transition, aU as create_out_transition, at as run_all, aq as update_keyed_each, aV as fix_and_outro_and_destroy_block, F as _typeof, aW as create_bidirectional_transition, aK as binding_callbacks, aL as bind, aX as createEventDispatcher, ac as create_component, ad as claim_component, ae as mount_component, aM as add_flush_callback, ah as destroy_component, aF as globals, aB as regenerator, aY as handle_promise, ai as validate_store, aj as component_subscribe, ak as goto, aH as empty } from './client.bd3b66fc.js';
-import { c as cubicOut, f as formatMoney, s as scale, l as luxon, _ as _objectWithoutProperties, d as stripNonDigits, g as expoOut, h as expoIn, P as Page, b as _asyncToGenerator, T as TopBar, a as actions, i as isClient } from './Page.68e2f107.js';
-import { P as PlusIcon } from './PlusIcon.6363618e.js';
-import { T as TextField, B as Button, a as TrashIcon } from './Button.e400814a.js';
+import { G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, P as _createClass, Q as SvelteComponentDev, R as validate_slots, aE as svg_element, X as claim_element, Y as children, $ as detach_dev, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a4 as append_dev, a6 as _slicedToArray, a8 as noop, as as is_function, aa as validate_each_argument, ab as validate_each_keys, U as element, V as text, W as space, Z as claim_text, a0 as claim_space, aJ as toggle_class, ao as action_destroyer, a5 as listen_dev, a7 as set_data_dev, af as transition_in, ap as group_outros, ag as transition_out, ar as check_outros, aR as fix_position, aS as add_transform, aT as create_animation, aC as add_render_callback, aD as create_in_transition, aU as create_out_transition, at as run_all, aq as update_keyed_each, aV as fix_and_outro_and_destroy_block, F as _typeof, aW as create_bidirectional_transition, aK as binding_callbacks, aL as bind, aX as createEventDispatcher, ac as create_component, ad as claim_component, ae as mount_component, aM as add_flush_callback, ah as destroy_component, aF as globals, aB as regenerator, aY as handle_promise, ai as validate_store, aj as component_subscribe, ak as goto, aH as empty } from './client.cc863f98.js';
+import { c as cubicOut, f as formatMoney, s as scale, l as luxon, _ as _objectWithoutProperties, d as stripNonDigits, g as expoOut, h as expoIn, P as Page, b as _asyncToGenerator, T as TopBar, a as actions, i as isClient } from './Page.41c1b79f.js';
+import { P as PlusIcon } from './PlusIcon.0d2fd801.js';
+import { T as TextField, B as Button, a as TrashIcon, R as ROUTES } from './constants.5ddf1c58.js';
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
@@ -1561,7 +1561,7 @@ function _createSuper$4(Derived) { var hasNativeReflectConstruct = _isNativeRefl
 function _isNativeReflectConstruct$4() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 var Object_1 = globals.Object,
     console_1 = globals.console;
-var file$4 = "src/routes/envelope/[id].svelte"; // (71:4) {:else}
+var file$4 = "src/routes/envelope/[id].svelte"; // (72:4) {:else}
 
 function create_else_block_1(ctx) {
   var span;
@@ -1592,7 +1592,7 @@ function create_else_block_1(ctx) {
     },
     h: function hydrate() {
       attr_dev(span, "class", "cursor-pointer flex space-x-2 items-end");
-      add_location(span, file$4, 71, 6, 2012);
+      add_location(span, file$4, 72, 6, 2059);
     },
     m: function mount(target, anchor) {
       insert_dev(target, span, anchor);
@@ -1627,11 +1627,11 @@ function create_else_block_1(ctx) {
     block: block,
     id: create_else_block_1.name,
     type: "else",
-    source: "(71:4) {:else}",
+    source: "(72:4) {:else}",
     ctx: ctx
   });
   return block;
-} // (67:4) {#if Object.keys(selectedTransactionsById).length >= 1}
+} // (68:4) {#if Object.keys(selectedTransactionsById).length >= 1}
 
 
 function create_if_block_1(ctx) {
@@ -1660,7 +1660,7 @@ function create_if_block_1(ctx) {
       this.h();
     },
     h: function hydrate() {
-      add_location(span, file$4, 67, 6, 1915);
+      add_location(span, file$4, 68, 6, 1962);
     },
     m: function mount(target, anchor) {
       insert_dev(target, span, anchor);
@@ -1695,11 +1695,11 @@ function create_if_block_1(ctx) {
     block: block,
     id: create_if_block_1.name,
     type: "if",
-    source: "(67:4) {#if Object.keys(selectedTransactionsById).length >= 1}",
+    source: "(68:4) {#if Object.keys(selectedTransactionsById).length >= 1}",
     ctx: ctx
   });
   return block;
-} // (65:2) <TopBar>
+} // (66:2) <TopBar>
 
 
 function create_default_slot_3(ctx) {
@@ -1785,7 +1785,7 @@ function create_default_slot_3(ctx) {
     block: block,
     id: create_default_slot_3.name,
     type: "slot",
-    source: "(65:2) <TopBar>",
+    source: "(66:2) <TopBar>",
     ctx: ctx
   });
   return block;
@@ -1810,7 +1810,7 @@ function create_catch_block(ctx) {
     ctx: ctx
   });
   return block;
-} // (81:63)      <EnvelopeTransactions       transactions="{transactions}
+} // (82:63)      <EnvelopeTransactions       transactions="{transactions}
 
 
 function create_then_block(ctx) {
@@ -1894,7 +1894,7 @@ function create_then_block(ctx) {
     block: block,
     id: create_then_block.name,
     type: "then",
-    source: "(81:63)      <EnvelopeTransactions       transactions=\\\"{transactions}",
+    source: "(82:63)      <EnvelopeTransactions       transactions=\\\"{transactions}",
     ctx: ctx
   });
   return block;
@@ -1919,7 +1919,7 @@ function create_pending_block(ctx) {
     ctx: ctx
   });
   return block;
-} // (104:6) <Button         class="w-20"         on:click="{() => {           goto('/');         }}"       >
+} // (105:6) <Button         class="w-20"         on:click="{() => {           goto(ROUTES.HOME);         }}"       >
 
 
 function create_default_slot_2(ctx) {
@@ -1942,11 +1942,11 @@ function create_default_slot_2(ctx) {
     block: block,
     id: create_default_slot_2.name,
     type: "slot",
-    source: "(104:6) <Button         class=\\\"w-20\\\"         on:click=\\\"{() => {           goto('/');         }}\\\"       >",
+    source: "(105:6) <Button         class=\\\"w-20\\\"         on:click=\\\"{() => {           goto(ROUTES.HOME);         }}\\\"       >",
     ctx: ctx
   });
   return block;
-} // (118:8) {:else}
+} // (119:8) {:else}
 
 
 function create_else_block$1(ctx) {
@@ -1971,7 +1971,7 @@ function create_else_block$1(ctx) {
     },
     h: function hydrate() {
       attr_dev(span, "class", "absolute inset-0 transform translate-y-1/2 top-0 inset-y-1/2");
-      add_location(span, file$4, 118, 10, 3360);
+      add_location(span, file$4, 119, 10, 3416);
     },
     m: function mount(target, anchor) {
       insert_dev(target, span, anchor);
@@ -2007,11 +2007,11 @@ function create_else_block$1(ctx) {
     block: block,
     id: create_else_block$1.name,
     type: "else",
-    source: "(118:8) {:else}",
+    source: "(119:8) {:else}",
     ctx: ctx
   });
   return block;
-} // (113:8) {#if isNegative}
+} // (114:8) {#if isNegative}
 
 
 function create_if_block$2(ctx) {
@@ -2036,7 +2036,7 @@ function create_if_block$2(ctx) {
     },
     h: function hydrate() {
       attr_dev(span, "class", "absolute inset-0 transform translate-y-1/2 top-0 inset-y-1/2");
-      add_location(span, file$4, 113, 10, 3188);
+      add_location(span, file$4, 114, 10, 3244);
     },
     m: function mount(target, anchor) {
       insert_dev(target, span, anchor);
@@ -2072,11 +2072,11 @@ function create_if_block$2(ctx) {
     block: block,
     id: create_if_block$2.name,
     type: "if",
-    source: "(113:8) {#if isNegative}",
+    source: "(114:8) {#if isNegative}",
     ctx: ctx
   });
   return block;
-} // (112:6) <Button class="w-20 relative" on:click="{handleSaveTransaction}">
+} // (113:6) <Button class="w-20 relative" on:click="{handleSaveTransaction}">
 
 
 function create_default_slot_1(ctx) {
@@ -2138,11 +2138,11 @@ function create_default_slot_1(ctx) {
     block: block,
     id: create_default_slot_1.name,
     type: "slot",
-    source: "(112:6) <Button class=\\\"w-20 relative\\\" on:click=\\\"{handleSaveTransaction}\\\">",
+    source: "(113:6) <Button class=\\\"w-20 relative\\\" on:click=\\\"{handleSaveTransaction}\\\">",
     ctx: ctx
   });
   return block;
-} // (64:0) <Page>
+} // (65:0) <Page>
 
 
 function create_default_slot(ctx) {
@@ -2347,9 +2347,9 @@ function create_default_slot(ctx) {
     },
     h: function hydrate() {
       attr_dev(div0, "class", "flex justify-around text-dark");
-      add_location(div0, file$4, 102, 4, 2905);
+      add_location(div0, file$4, 103, 4, 2953);
       attr_dev(div1, "class", "sticky mt-auto mx-2 bottom-2 left-2 right-2 box-border flex flex-col space-y-4 bg-primary rounded-3xl p-4");
-      add_location(div1, file$4, 87, 2, 2389);
+      add_location(div1, file$4, 88, 2, 2437);
     },
     m: function mount(target, anchor) {
       mount_component(topbar, target, anchor);
@@ -2520,7 +2520,7 @@ function create_default_slot(ctx) {
     block: block,
     id: create_default_slot.name,
     type: "slot",
-    source: "(64:0) <Page>",
+    source: "(65:0) <Page>",
     ctx: ctx
   });
   return block;
@@ -2710,7 +2710,7 @@ function instance$4($$self, $$props, $$invalidate) {
   });
 
   var click_handler = function click_handler() {
-    return goto("envelope/edit/".concat(id));
+    return goto("".concat(ROUTES.EDIT, "/").concat(id));
   };
 
   function envelopetransactions_selectedTransactionsById_binding(value) {
@@ -2739,7 +2739,7 @@ function instance$4($$self, $$props, $$invalidate) {
   }
 
   var click_handler_1 = function click_handler_1() {
-    goto("/");
+    goto(ROUTES.HOME);
   };
 
   $$self.$$set = function ($$props) {
@@ -2761,6 +2761,7 @@ function instance$4($$self, $$props, $$invalidate) {
       Edit2Icon: Edit2Icon,
       Page: Page,
       scale: scale,
+      ROUTES: ROUTES,
       id: id,
       handleMoneyInputEnterPressed: handleMoneyInputEnterPressed,
       handleDelete: handleDelete,

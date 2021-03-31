@@ -4070,7 +4070,8 @@ function _isNativeReflectConstruct$1() { if (typeof Reflect === "undefined" || !
 var file = "src/routes/_layout.svelte";
 
 function create_fragment(ctx) {
-  var link;
+  var link0;
+  var link1;
   var t;
   var main;
   var current;
@@ -4082,18 +4083,22 @@ function create_fragment(ctx) {
   ctx[0], null);
   var block = {
     c: function create() {
-      link = element("link");
+      link0 = element("link");
+      link1 = element("link");
       t = space();
       main = element("main");
       if (default_slot) default_slot.c();
       this.h();
     },
     l: function claim(nodes) {
-      var head_nodes = query_selector_all("[data-svelte=\"svelte-18y1a68\"]", document.head);
-      link = claim_element(head_nodes, "LINK", {
-        href: true,
+      var head_nodes = query_selector_all("[data-svelte=\"svelte-18d22sf\"]", document.head);
+      link0 = claim_element(head_nodes, "LINK", {
         rel: true,
-        type: true
+        href: true
+      });
+      link1 = claim_element(head_nodes, "LINK", {
+        href: true,
+        rel: true
       });
       head_nodes.forEach(detach_dev);
       t = claim_space(nodes);
@@ -4106,16 +4111,19 @@ function create_fragment(ctx) {
       this.h();
     },
     h: function hydrate() {
-      attr_dev(link, "href", "http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900");
-      attr_dev(link, "rel", "stylesheet");
-      attr_dev(link, "type", "text/css");
-      add_location(link, file, 7, 2, 182);
+      attr_dev(link0, "rel", "preconnect");
+      attr_dev(link0, "href", "https://fonts.gstatic.com");
+      add_location(link0, file, 7, 2, 182);
+      attr_dev(link1, "href", "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+      attr_dev(link1, "rel", "stylesheet");
+      add_location(link1, file, 8, 2, 243);
       document.title = "Lopy";
       attr_dev(main, "class", "border-box w-screen h-screen overflow-x-hidden overflow-y-scroll text-light bg-background");
-      add_location(main, file, 16, 0, 414);
+      add_location(main, file, 16, 0, 468);
     },
     m: function mount(target, anchor) {
-      append_dev(document.head, link);
+      append_dev(document.head, link0);
+      append_dev(document.head, link1);
       insert_dev(target, t, anchor);
       insert_dev(target, main, anchor);
 
@@ -4149,7 +4157,8 @@ function create_fragment(ctx) {
       current = false;
     },
     d: function destroy(detaching) {
-      detach_dev(link);
+      detach_dev(link0);
+      detach_dev(link1);
       if (detaching) detach_dev(t);
       if (detaching) detach_dev(main);
       if (default_slot) default_slot.d(detaching);
@@ -5044,15 +5053,15 @@ var App = /*#__PURE__*/function (_SvelteComponentDev) {
 var ignore = [];
 var components = [{
   js: function js() {
-    return Promise.all([import('./index.dc003eb3.js'), __inject_styles(["client-76e54d79.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./index.9e452604.js'), __inject_styles(["client-76e54d79.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./[id].5e580c3f.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-d3f36817.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./[id].bf9c0442.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-d3f36817.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./[id].0263ee89.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-25d8503b.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./[id].f94ac585.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-25d8503b.css"])]).then(function(x) { return x[0]; });
   }
 }];
 var routes = function (d) {

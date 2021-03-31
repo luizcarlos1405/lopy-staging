@@ -1,4 +1,4 @@
-import { G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, Q as SvelteComponentDev, aw as create_slot, R as validate_slots, U as element, X as claim_element, Y as children, $ as detach_dev, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a6 as _slicedToArray, ax as update_slot, af as transition_in, ag as transition_out, _ as _toConsumableArray, F as _typeof, ay as createCommonjsModule, az as writable, aA as readable, aB as regenerator, c as _defineProperty, aC as add_render_callback, aD as create_in_transition } from './client.b58c66b9.js';
+import { G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, Q as SvelteComponentDev, aw as create_slot, R as validate_slots, U as element, X as claim_element, Y as children, $ as detach_dev, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a6 as _slicedToArray, ax as update_slot, af as transition_in, ag as transition_out, _ as _toConsumableArray, F as _typeof, ay as createCommonjsModule, az as writable, aA as readable, aB as regenerator, c as _defineProperty, aC as add_render_callback, aD as create_in_transition } from './client.e88ac2fb.js';
 
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
@@ -14010,6 +14010,7 @@ var db;
 
 var refreshEnvelopes = function refreshEnvelopes() {
   return db.envelopes.orderBy('order').toArray().then(function (dbEnvelopes) {
+    console.log('dbEnvelopes', dbEnvelopes);
     envelopes.set(dbEnvelopes);
   });
 };
@@ -14046,7 +14047,7 @@ var actions = readable(isClient() && {
 
             case 3:
               envelopeCount = _context.sent;
-              return _context.abrupt("return", _id ? db.envelopes.update(_id, envelope) : db.envelopes.add(_objectSpread({
+              return _context.abrupt("return", _id ? db.envelopes.update(_id, envelope).then(refreshEnvelopes) : db.envelopes.add(_objectSpread({
                 _id: v4(),
                 order: envelopeCount,
                 value: 0

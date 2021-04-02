@@ -2692,7 +2692,7 @@ var SOURCES = {
 var SHADOW_ITEM_MARKER_PROPERTY_NAME = "isDndShadowItem";
 var SHADOW_ELEMENT_ATTRIBUTE_NAME = "data-is-dnd-shadow-item";
 var SHADOW_PLACEHOLDER_ITEM_ID = "id:dnd-shadow-placeholder-0000";
-var ITEM_ID_KEY = "id";
+var ITEM_ID_KEY = "_id";
 var activeDndZoneCount = 0;
 function incrementActiveDropZoneCount() {
   activeDndZoneCount++;
@@ -4067,6 +4067,7 @@ function dndzone(node, options) {
 function _createSuper$1(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$1(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 function _isNativeReflectConstruct$1() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+var console_1 = globals.console;
 var file = "src/routes/_layout.svelte";
 
 function create_fragment(ctx) {
@@ -4077,10 +4078,10 @@ function create_fragment(ctx) {
   var current;
   var default_slot_template =
   /*#slots*/
-  ctx[1].default;
+  ctx[2].default;
   var default_slot = create_slot(default_slot_template, ctx,
   /*$$scope*/
-  ctx[0], null);
+  ctx[1], null);
   var block = {
     c: function create() {
       link0 = element("link");
@@ -4113,13 +4114,13 @@ function create_fragment(ctx) {
     h: function hydrate() {
       attr_dev(link0, "rel", "preconnect");
       attr_dev(link0, "href", "https://fonts.gstatic.com");
-      add_location(link0, file, 7, 2, 182);
+      add_location(link0, file, 11, 2, 241);
       attr_dev(link1, "href", "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
       attr_dev(link1, "rel", "stylesheet");
-      add_location(link1, file, 8, 2, 243);
+      add_location(link1, file, 12, 2, 302);
       document.title = "Lopy";
       attr_dev(main, "class", "border-box w-screen h-screen overflow-x-hidden overflow-y-scroll text-light bg-background");
-      add_location(main, file, 16, 0, 468);
+      add_location(main, file, 20, 0, 527);
     },
     m: function mount(target, anchor) {
       append_dev(document.head, link0);
@@ -4140,10 +4141,10 @@ function create_fragment(ctx) {
       if (default_slot) {
         if (default_slot.p && dirty &
         /*$$scope*/
-        1) {
+        2) {
           update_slot(default_slot, default_slot_template, ctx,
           /*$$scope*/
-          ctx[0], dirty, null, null);
+          ctx[1], dirty, null, null);
         }
       }
     },
@@ -4179,23 +4180,35 @@ function instance($$self, $$props, $$invalidate) {
       slots = _$$props$$$slots === void 0 ? {} : _$$props$$$slots,
       $$scope = $$props.$$scope;
   validate_slots("Layout", slots, ['default']);
+  var segment = $$props.segment;
+  console.log("segment", segment);
   overrideItemIdKeyNameBeforeInitialisingDndZones("_id");
-  var writable_props = [];
+  var writable_props = ["segment"];
   Object.keys($$props).forEach(function (key) {
-    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn("<Layout> was created with unknown prop '".concat(key, "'"));
+    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1.warn("<Layout> was created with unknown prop '".concat(key, "'"));
   });
 
   $$self.$$set = function ($$props) {
-    if ("$$scope" in $$props) $$invalidate(0, $$scope = $$props.$$scope);
+    if ("segment" in $$props) $$invalidate(0, segment = $$props.segment);
+    if ("$$scope" in $$props) $$invalidate(1, $$scope = $$props.$$scope);
   };
 
   $$self.$capture_state = function () {
     return {
-      overrideItemIdKeyNameBeforeInitialisingDndZones: overrideItemIdKeyNameBeforeInitialisingDndZones
+      overrideItemIdKeyNameBeforeInitialisingDndZones: overrideItemIdKeyNameBeforeInitialisingDndZones,
+      segment: segment
     };
   };
 
-  return [$$scope, slots];
+  $$self.$inject_state = function ($$props) {
+    if ("segment" in $$props) $$invalidate(0, segment = $$props.segment);
+  };
+
+  if ($$props && "$$inject" in $$props) {
+    $$self.$inject_state($$props.$$inject);
+  }
+
+  return [segment, $$scope, slots];
 }
 
 var Layout = /*#__PURE__*/function (_SvelteComponentDev) {
@@ -4209,15 +4222,36 @@ var Layout = /*#__PURE__*/function (_SvelteComponentDev) {
     _classCallCheck(this, Layout);
 
     _this = _super.call(this, options);
-    init(_assertThisInitialized(_this), options, instance, create_fragment, safe_not_equal, {});
+    init(_assertThisInitialized(_this), options, instance, create_fragment, safe_not_equal, {
+      segment: 0
+    });
     dispatch_dev("SvelteRegisterComponent", {
       component: _assertThisInitialized(_this),
       tagName: "Layout",
       options: options,
       id: create_fragment.name
     });
+    var ctx = _this.$$.ctx;
+    var props = options.props || {};
+
+    if (
+    /*segment*/
+    ctx[0] === undefined && !("segment" in props)) {
+      console_1.warn("<Layout> was created without expected prop 'segment'");
+    }
+
     return _this;
   }
+
+  _createClass(Layout, [{
+    key: "segment",
+    get: function get() {
+      throw new Error("<Layout>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    },
+    set: function set(value) {
+      throw new Error("<Layout>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    }
+  }]);
 
   return Layout;
 }(SvelteComponentDev);
@@ -5053,15 +5087,15 @@ var App = /*#__PURE__*/function (_SvelteComponentDev) {
 var ignore = [];
 var components = [{
   js: function js() {
-    return Promise.all([import('./index.ee151458.js'), __inject_styles(["client-76e54d79.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./index.4b7fa472.js'), __inject_styles(["client-76e54d79.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./[id].4106bef3.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-d3f36817.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./[id].75c3ef82.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-d3f36817.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./[id].eb102944.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-25d8503b.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./[id].26c0cdde.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-25d8503b.css"])]).then(function(x) { return x[0]; });
   }
 }];
 var routes = function (d) {
@@ -5982,6 +6016,6 @@ start$1({
   target: document.body
 });
 
-export { detach_dev as $, dispatchFinalizeEvent as A, unDecorateShadowElement as B, dndzone as C, DRAGGED_ENTERED_EVENT_NAME as D, toString as E, _typeof as F, _inherits as G, _getPrototypeOf as H, ITEM_ID_KEY as I, _possibleConstructorReturn as J, _classCallCheck as K, init as L, safe_not_equal as M, _assertThisInitialized as N, dispatch_dev as O, _createClass as P, SvelteComponentDev as Q, validate_slots as R, SHADOW_ITEM_MARKER_PROPERTY_NAME as S, TRIGGERS as T, element as U, text as V, space as W, claim_element as X, children as Y, claim_text as Z, _toConsumableArray as _, SHADOW_PLACEHOLDER_ITEM_ID as a, claim_space as a0, attr_dev as a1, add_location as a2, insert_dev as a3, append_dev as a4, listen_dev as a5, _slicedToArray as a6, set_data_dev as a7, noop as a8, bubble as a9, readable as aA, regenerator as aB, add_render_callback as aC, create_in_transition as aD, svg_element as aE, globals as aF, destroy_each as aG, empty as aH, HtmlTag as aI, toggle_class as aJ, binding_callbacks as aK, bind as aL, add_flush_callback as aM, compute_rest_props as aN, exclude_internal_props as aO, set_attributes as aP, set_input_value as aQ, fix_position as aR, add_transform as aS, create_animation as aT, create_out_transition as aU, fix_and_outro_and_destroy_block as aV, create_bidirectional_transition as aW, createEventDispatcher as aX, handle_promise as aY, validate_each_argument as aa, validate_each_keys as ab, create_component as ac, claim_component as ad, mount_component as ae, transition_in as af, transition_out as ag, destroy_component as ah, validate_store as ai, component_subscribe as aj, goto as ak, assign as al, get_spread_update as am, get_spread_object as an, action_destroyer as ao, group_outros as ap, update_keyed_each as aq, check_outros as ar, is_function as as, run_all as at, set_store_value as au, outro_and_destroy_block as av, create_slot as aw, update_slot as ax, createCommonjsModule as ay, writable as az, decorateShadowEl as b, _defineProperty as c, decrementActiveDropZoneCount as d, createDraggedElementFrom as e, styleActiveDropZones as f, dispatchConsiderEvent as g, SOURCES as h, incrementActiveDropZoneCount as i, areObjectsShallowEqual as j, areArraysShallowEqualSameOrder as k, styleInactiveDropZones as l, morphDraggedElementToBeLike as m, moveDraggedElementToWasDroppedState as n, getBoundingRectNoTransforms as o, preventShrinking as p, hideOriginalDragTarget as q, armWindowScroller as r, styleDraggable as s, DRAGGED_LEFT_EVENT_NAME as t, DRAGGED_OVER_INDEX_EVENT_NAME as u, DRAGGED_LEFT_DOCUMENT_EVENT_NAME as v, observe as w, disarmWindowScroller as x, unobserve as y, DRAGGED_LEFT_TYPES as z };
+export { detach_dev as $, dispatchFinalizeEvent as A, unDecorateShadowElement as B, dndzone as C, DRAGGED_ENTERED_EVENT_NAME as D, toString as E, _typeof as F, _inherits as G, _getPrototypeOf as H, ITEM_ID_KEY as I, _possibleConstructorReturn as J, _classCallCheck as K, init as L, safe_not_equal as M, _assertThisInitialized as N, dispatch_dev as O, _createClass as P, SvelteComponentDev as Q, validate_slots as R, SHADOW_ITEM_MARKER_PROPERTY_NAME as S, TRIGGERS as T, element as U, text as V, space as W, claim_element as X, children as Y, claim_text as Z, _toConsumableArray as _, SHADOW_PLACEHOLDER_ITEM_ID as a, claim_space as a0, attr_dev as a1, add_location as a2, insert_dev as a3, append_dev as a4, listen_dev as a5, noop as a6, bubble as a7, validate_each_argument as a8, validate_each_keys as a9, svg_element as aA, globals as aB, destroy_each as aC, empty as aD, HtmlTag as aE, toggle_class as aF, set_data_dev as aG, binding_callbacks as aH, bind as aI, add_flush_callback as aJ, compute_rest_props as aK, assign as aL, exclude_internal_props as aM, set_attributes as aN, set_input_value as aO, get_spread_update as aP, fix_position as aQ, add_transform as aR, create_animation as aS, create_out_transition as aT, fix_and_outro_and_destroy_block as aU, create_bidirectional_transition as aV, createEventDispatcher as aW, handle_promise as aX, create_component as aa, claim_component as ab, mount_component as ac, _slicedToArray as ad, transition_in as ae, transition_out as af, destroy_component as ag, validate_store as ah, component_subscribe as ai, goto as aj, action_destroyer as ak, group_outros as al, update_keyed_each as am, check_outros as an, is_function as ao, run_all as ap, set_store_value as aq, outro_and_destroy_block as ar, create_slot as as, update_slot as at, createCommonjsModule as au, writable as av, readable as aw, regenerator as ax, add_render_callback as ay, create_in_transition as az, decorateShadowEl as b, _defineProperty as c, decrementActiveDropZoneCount as d, createDraggedElementFrom as e, styleActiveDropZones as f, dispatchConsiderEvent as g, SOURCES as h, incrementActiveDropZoneCount as i, areObjectsShallowEqual as j, areArraysShallowEqualSameOrder as k, styleInactiveDropZones as l, morphDraggedElementToBeLike as m, moveDraggedElementToWasDroppedState as n, getBoundingRectNoTransforms as o, preventShrinking as p, hideOriginalDragTarget as q, armWindowScroller as r, styleDraggable as s, DRAGGED_LEFT_EVENT_NAME as t, DRAGGED_OVER_INDEX_EVENT_NAME as u, DRAGGED_LEFT_DOCUMENT_EVENT_NAME as v, observe as w, disarmWindowScroller as x, unobserve as y, DRAGGED_LEFT_TYPES as z };
 
 import __inject_styles from './inject_styles.fe622066.js';

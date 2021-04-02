@@ -1,7 +1,7 @@
-import { G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, P as _createClass, Q as SvelteComponentDev, R as validate_slots, aE as svg_element, X as claim_element, Y as children, $ as detach_dev, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a4 as append_dev, a6 as _slicedToArray, a8 as noop, as as is_function, aa as validate_each_argument, ab as validate_each_keys, U as element, V as text, W as space, Z as claim_text, a0 as claim_space, aJ as toggle_class, ao as action_destroyer, a5 as listen_dev, a7 as set_data_dev, af as transition_in, ap as group_outros, ag as transition_out, ar as check_outros, aR as fix_position, aS as add_transform, aT as create_animation, aC as add_render_callback, aD as create_in_transition, aU as create_out_transition, at as run_all, aq as update_keyed_each, aV as fix_and_outro_and_destroy_block, F as _typeof, aW as create_bidirectional_transition, aK as binding_callbacks, aL as bind, aX as createEventDispatcher, ac as create_component, ad as claim_component, ae as mount_component, aM as add_flush_callback, ah as destroy_component, aF as globals, aB as regenerator, aY as handle_promise, ai as validate_store, aj as component_subscribe, ak as goto, aH as empty } from './client.7c0c4172.js';
-import { c as cubicOut, f as formatMoney, s as scale, l as luxon, _ as _objectWithoutProperties, d as stripNonDigits, g as expoOut, h as expoIn, P as Page, b as _asyncToGenerator, T as TopBar, a as actions, i as isClient, R as ROUTES } from './constants.ed8cb815.js';
-import { P as PlusIcon } from './PlusIcon.0d003182.js';
-import { T as TextField, B as Button, a as TrashIcon } from './Button.01de1633.js';
+import { G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, P as _createClass, Q as SvelteComponentDev, R as validate_slots, aA as svg_element, X as claim_element, Y as children, $ as detach_dev, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a4 as append_dev, ad as _slicedToArray, a6 as noop, ao as is_function, a8 as validate_each_argument, a9 as validate_each_keys, U as element, V as text, W as space, Z as claim_text, a0 as claim_space, aF as toggle_class, ak as action_destroyer, a5 as listen_dev, aG as set_data_dev, ae as transition_in, al as group_outros, af as transition_out, an as check_outros, aQ as fix_position, aR as add_transform, aS as create_animation, ay as add_render_callback, az as create_in_transition, aT as create_out_transition, ap as run_all, am as update_keyed_each, aU as fix_and_outro_and_destroy_block, F as _typeof, aV as create_bidirectional_transition, aH as binding_callbacks, aI as bind, aW as createEventDispatcher, aa as create_component, ab as claim_component, ac as mount_component, aJ as add_flush_callback, ag as destroy_component, ax as regenerator, aX as handle_promise, ah as validate_store, ai as component_subscribe, aj as goto, aB as globals, aD as empty } from './client.7a959cea.js';
+import { c as cubicOut, f as formatMoney, s as scale, l as luxon, _ as _objectWithoutProperties, d as stripNonDigits, g as expoOut, h as expoIn, P as Page, b as _asyncToGenerator, T as TopBar, a as actions, i as isClient, R as ROUTES } from './constants.584939f5.js';
+import { l as longpress, P as PlusIcon } from './longpress.b58a61bc.js';
+import { T as TextField, B as Button, a as TrashIcon } from './Button.e0119b61.js';
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
@@ -442,32 +442,6 @@ var MinusIcon = /*#__PURE__*/function (_SvelteComponentDev) {
 
   return MinusIcon;
 }(SvelteComponentDev);
-
-function longpress(node, duration) {
-  var timer;
-
-  var handleMousedown = function handleMousedown() {
-    timer = setTimeout(function () {
-      node.dispatchEvent(new CustomEvent('longpress'));
-    }, duration);
-  };
-
-  var handleMouseup = function handleMouseup() {
-    clearTimeout(timer);
-  };
-
-  node.addEventListener('mousedown', handleMousedown);
-  node.addEventListener('mouseup', handleMouseup);
-  return {
-    update: function update(newDuration) {
-      duration = newDuration;
-    },
-    destroy: function destroy() {
-      node.removeEventListener('mousedown', handleMousedown);
-      node.removeEventListener('mouseup', handleMouseup);
-    }
-  };
-}
 
 function flip(node, animation, params) {
   var style = getComputedStyle(node);
@@ -1559,9 +1533,8 @@ var MoneyField = /*#__PURE__*/function (_SvelteComponentDev) {
 function _createSuper$4(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$4(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 function _isNativeReflectConstruct$4() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-var Object_1 = globals.Object,
-    console_1 = globals.console;
-var file$4 = "src/routes/envelope/[id].svelte"; // (72:4) {:else}
+var Object_1 = globals.Object;
+var file$4 = "src/routes/envelope/[id].svelte"; // (69:4) {:else}
 
 function create_else_block_1(ctx) {
   var span;
@@ -1592,7 +1565,7 @@ function create_else_block_1(ctx) {
     },
     h: function hydrate() {
       attr_dev(span, "class", "cursor-pointer flex space-x-2 items-end");
-      add_location(span, file$4, 72, 6, 2059);
+      add_location(span, file$4, 69, 6, 1980);
     },
     m: function mount(target, anchor) {
       insert_dev(target, span, anchor);
@@ -1627,11 +1600,11 @@ function create_else_block_1(ctx) {
     block: block,
     id: create_else_block_1.name,
     type: "else",
-    source: "(72:4) {:else}",
+    source: "(69:4) {:else}",
     ctx: ctx
   });
   return block;
-} // (68:4) {#if Object.keys(selectedTransactionsById).length >= 1}
+} // (65:4) {#if Object.keys(selectedTransactionsById).length >= 1}
 
 
 function create_if_block_1(ctx) {
@@ -1660,7 +1633,7 @@ function create_if_block_1(ctx) {
       this.h();
     },
     h: function hydrate() {
-      add_location(span, file$4, 68, 6, 1962);
+      add_location(span, file$4, 65, 6, 1883);
     },
     m: function mount(target, anchor) {
       insert_dev(target, span, anchor);
@@ -1695,11 +1668,11 @@ function create_if_block_1(ctx) {
     block: block,
     id: create_if_block_1.name,
     type: "if",
-    source: "(68:4) {#if Object.keys(selectedTransactionsById).length >= 1}",
+    source: "(65:4) {#if Object.keys(selectedTransactionsById).length >= 1}",
     ctx: ctx
   });
   return block;
-} // (66:2) <TopBar>
+} // (63:2) <TopBar>
 
 
 function create_default_slot_3(ctx) {
@@ -1715,9 +1688,9 @@ function create_default_slot_3(ctx) {
   function select_block_type(ctx, dirty) {
     if (dirty &
     /*selectedTransactionsById*/
-    16) show_if = !!(Object.keys(
+    8) show_if = !!(Object.keys(
     /*selectedTransactionsById*/
-    ctx[4]).length >= 1);
+    ctx[3]).length >= 1);
     if (show_if) return 0;
     return 1;
   }
@@ -1785,7 +1758,7 @@ function create_default_slot_3(ctx) {
     block: block,
     id: create_default_slot_3.name,
     type: "slot",
-    source: "(66:2) <TopBar>",
+    source: "(63:2) <TopBar>",
     ctx: ctx
   });
   return block;
@@ -1810,7 +1783,7 @@ function create_catch_block(ctx) {
     ctx: ctx
   });
   return block;
-} // (82:63)      <EnvelopeTransactions       transactions="{transactions}
+} // (79:63)      <EnvelopeTransactions       transactions="{transactions}
 
 
 function create_then_block(ctx) {
@@ -1831,10 +1804,10 @@ function create_then_block(ctx) {
 
   if (
   /*selectedTransactionsById*/
-  ctx[4] !== void 0) {
+  ctx[3] !== void 0) {
     envelopetransactions_props.selectedTransactionsById =
     /*selectedTransactionsById*/
-    ctx[4];
+    ctx[3];
   }
 
   envelopetransactions = new EnvelopeTransactions({
@@ -1859,17 +1832,17 @@ function create_then_block(ctx) {
       var envelopetransactions_changes = {};
       if (dirty &
       /*transactionsPaginated*/
-      8) envelopetransactions_changes.transactions =
+      4) envelopetransactions_changes.transactions =
       /*transactions*/
       ctx[17];
 
       if (!updating_selectedTransactionsById && dirty &
       /*selectedTransactionsById*/
-      16) {
+      8) {
         updating_selectedTransactionsById = true;
         envelopetransactions_changes.selectedTransactionsById =
         /*selectedTransactionsById*/
-        ctx[4];
+        ctx[3];
         add_flush_callback(function () {
           return updating_selectedTransactionsById = false;
         });
@@ -1894,7 +1867,7 @@ function create_then_block(ctx) {
     block: block,
     id: create_then_block.name,
     type: "then",
-    source: "(82:63)      <EnvelopeTransactions       transactions=\\\"{transactions}",
+    source: "(79:63)      <EnvelopeTransactions       transactions=\\\"{transactions}",
     ctx: ctx
   });
   return block;
@@ -1919,7 +1892,7 @@ function create_pending_block(ctx) {
     ctx: ctx
   });
   return block;
-} // (105:6) <Button         class="w-20"         on:click="{() => {           goto(ROUTES.HOME);         }}"       >
+} // (102:6) <Button         class="w-20"         on:click="{() => {           goto(ROUTES.HOME);         }}"       >
 
 
 function create_default_slot_2(ctx) {
@@ -1942,11 +1915,11 @@ function create_default_slot_2(ctx) {
     block: block,
     id: create_default_slot_2.name,
     type: "slot",
-    source: "(105:6) <Button         class=\\\"w-20\\\"         on:click=\\\"{() => {           goto(ROUTES.HOME);         }}\\\"       >",
+    source: "(102:6) <Button         class=\\\"w-20\\\"         on:click=\\\"{() => {           goto(ROUTES.HOME);         }}\\\"       >",
     ctx: ctx
   });
   return block;
-} // (119:8) {:else}
+} // (116:8) {:else}
 
 
 function create_else_block$1(ctx) {
@@ -1971,7 +1944,7 @@ function create_else_block$1(ctx) {
     },
     h: function hydrate() {
       attr_dev(span, "class", "absolute inset-0 transform translate-y-1/2 top-0 inset-y-1/2");
-      add_location(span, file$4, 119, 10, 3416);
+      add_location(span, file$4, 116, 10, 3337);
     },
     m: function mount(target, anchor) {
       insert_dev(target, span, anchor);
@@ -2007,11 +1980,11 @@ function create_else_block$1(ctx) {
     block: block,
     id: create_else_block$1.name,
     type: "else",
-    source: "(119:8) {:else}",
+    source: "(116:8) {:else}",
     ctx: ctx
   });
   return block;
-} // (114:8) {#if isNegative}
+} // (111:8) {#if isNegative}
 
 
 function create_if_block$2(ctx) {
@@ -2036,7 +2009,7 @@ function create_if_block$2(ctx) {
     },
     h: function hydrate() {
       attr_dev(span, "class", "absolute inset-0 transform translate-y-1/2 top-0 inset-y-1/2");
-      add_location(span, file$4, 114, 10, 3244);
+      add_location(span, file$4, 111, 10, 3165);
     },
     m: function mount(target, anchor) {
       insert_dev(target, span, anchor);
@@ -2072,11 +2045,11 @@ function create_if_block$2(ctx) {
     block: block,
     id: create_if_block$2.name,
     type: "if",
-    source: "(114:8) {#if isNegative}",
+    source: "(111:8) {#if isNegative}",
     ctx: ctx
   });
   return block;
-} // (113:6) <Button class="w-20 relative" on:click="{handleSaveTransaction}">
+} // (110:6) <Button class="w-20 relative" on:click="{handleSaveTransaction}">
 
 
 function create_default_slot_1(ctx) {
@@ -2138,11 +2111,11 @@ function create_default_slot_1(ctx) {
     block: block,
     id: create_default_slot_1.name,
     type: "slot",
-    source: "(113:6) <Button class=\\\"w-20 relative\\\" on:click=\\\"{handleSaveTransaction}\\\">",
+    source: "(110:6) <Button class=\\\"w-20 relative\\\" on:click=\\\"{handleSaveTransaction}\\\">",
     ctx: ctx
   });
   return block;
-} // (65:0) <Page>
+} // (62:0) <Page>
 
 
 function create_default_slot(ctx) {
@@ -2188,7 +2161,7 @@ function create_default_slot(ctx) {
   };
   handle_promise(promise =
   /*transactionsPaginated*/
-  ctx[3].transactions, info);
+  ctx[2].transactions, info);
 
   function moneyfield_isNegative_binding(value) {
     /*moneyfield_isNegative_binding*/
@@ -2217,18 +2190,18 @@ function create_default_slot(ctx) {
 
   if (
   /*transaction*/
-  ctx[1].value !== void 0) {
+  ctx[4].value !== void 0) {
     moneyfield_props.value =
     /*transaction*/
-    ctx[1].value;
+    ctx[4].value;
   }
 
   if (
   /*moneyInput*/
-  ctx[2] !== void 0) {
+  ctx[1] !== void 0) {
     moneyfield_props.inputRef =
     /*moneyInput*/
-    ctx[2];
+    ctx[1];
   }
 
   moneyfield = new MoneyField({
@@ -2261,10 +2234,10 @@ function create_default_slot(ctx) {
 
   if (
   /*transaction*/
-  ctx[1].comment !== void 0) {
+  ctx[4].comment !== void 0) {
     textfield_props.value =
     /*transaction*/
-    ctx[1].comment;
+    ctx[4].comment;
   }
 
   textfield = new TextField({
@@ -2347,9 +2320,9 @@ function create_default_slot(ctx) {
     },
     h: function hydrate() {
       attr_dev(div0, "class", "flex justify-around text-dark");
-      add_location(div0, file$4, 103, 4, 2953);
+      add_location(div0, file$4, 100, 4, 2874);
       attr_dev(div1, "class", "sticky mt-auto mx-2 bottom-2 left-2 right-2 box-border flex flex-col space-y-4 bg-primary rounded-3xl p-4");
-      add_location(div1, file$4, 88, 2, 2437);
+      add_location(div1, file$4, 85, 2, 2358);
     },
     m: function mount(target, anchor) {
       mount_component(topbar, target, anchor);
@@ -2379,7 +2352,7 @@ function create_default_slot(ctx) {
 
       if (dirty &
       /*$$scope, selectedTransactionsById, id*/
-      262161) {
+      262153) {
         topbar_changes.$$scope = {
           dirty: dirty,
           ctx: ctx
@@ -2391,9 +2364,9 @@ function create_default_slot(ctx) {
 
       if (dirty &
       /*transactionsPaginated*/
-      8 && promise !== (promise =
+      4 && promise !== (promise =
       /*transactionsPaginated*/
-      ctx[3].transactions) && handle_promise(promise, info)) ; else {
+      ctx[2].transactions) && handle_promise(promise, info)) ; else {
         var child_ctx = ctx.slice();
         child_ctx[17] = info.resolved;
         info.block.p(child_ctx, dirty);
@@ -2415,11 +2388,11 @@ function create_default_slot(ctx) {
 
       if (!updating_value && dirty &
       /*transaction*/
-      2) {
+      16) {
         updating_value = true;
         moneyfield_changes.value =
         /*transaction*/
-        ctx[1].value;
+        ctx[4].value;
         add_flush_callback(function () {
           return updating_value = false;
         });
@@ -2427,11 +2400,11 @@ function create_default_slot(ctx) {
 
       if (!updating_inputRef && dirty &
       /*moneyInput*/
-      4) {
+      2) {
         updating_inputRef = true;
         moneyfield_changes.inputRef =
         /*moneyInput*/
-        ctx[2];
+        ctx[1];
         add_flush_callback(function () {
           return updating_inputRef = false;
         });
@@ -2442,11 +2415,11 @@ function create_default_slot(ctx) {
 
       if (!updating_value_1 && dirty &
       /*transaction*/
-      2) {
+      16) {
         updating_value_1 = true;
         textfield_changes.value =
         /*transaction*/
-        ctx[1].comment;
+        ctx[4].comment;
         add_flush_callback(function () {
           return updating_value_1 = false;
         });
@@ -2520,7 +2493,7 @@ function create_default_slot(ctx) {
     block: block,
     id: create_default_slot.name,
     type: "slot",
-    source: "(65:0) <Page>",
+    source: "(62:0) <Page>",
     ctx: ctx
   });
   return block;
@@ -2642,14 +2615,14 @@ function instance$4($$self, $$props, $$invalidate) {
               return $actions.deleteTransactions(Object.keys(selectedTransactionsById), id);
 
             case 2:
-              $$invalidate(4, selectedTransactionsById = {});
+              $$invalidate(3, selectedTransactionsById = {});
               _context2.t0 = $$invalidate;
               _context2.next = 6;
               return transactionsPaginated.refresh();
 
             case 6:
               _context2.t1 = transactionsPaginated = _context2.sent;
-              (0, _context2.t0)(3, _context2.t1);
+              (0, _context2.t0)(2, _context2.t1);
 
             case 8:
             case "end":
@@ -2671,19 +2644,18 @@ function instance$4($$self, $$props, $$invalidate) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                $$invalidate(1, transaction.value = 0, transaction);
-                $$invalidate(1, transaction.comment = "", transaction);
+                $$invalidate(4, transaction.value = 0, transaction);
+                $$invalidate(4, transaction.comment = "", transaction);
                 _context3.t0 = $$invalidate;
                 _context3.next = 5;
                 return transactionsPaginated.refresh();
 
               case 5:
                 _context3.t1 = transactionsPaginated = _context3.sent;
-                (0, _context3.t0)(3, _context3.t1);
-                console.log("moneyInput", moneyInput);
+                (0, _context3.t0)(2, _context3.t1);
                 moneyInput.focus();
 
-              case 9:
+              case 8:
               case "end":
                 return _context3.stop();
             }
@@ -2706,7 +2678,7 @@ function instance$4($$self, $$props, $$invalidate) {
   var isNegative = true;
   var writable_props = ["id"];
   Object_1.keys($$props).forEach(function (key) {
-    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1.warn("<U5Bidu5D> was created with unknown prop '".concat(key, "'"));
+    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn("<U5Bidu5D> was created with unknown prop '".concat(key, "'"));
   });
 
   var click_handler = function click_handler() {
@@ -2715,7 +2687,7 @@ function instance$4($$self, $$props, $$invalidate) {
 
   function envelopetransactions_selectedTransactionsById_binding(value) {
     selectedTransactionsById = value;
-    $$invalidate(4, selectedTransactionsById);
+    $$invalidate(3, selectedTransactionsById);
   }
 
   function moneyfield_isNegative_binding(value) {
@@ -2725,17 +2697,17 @@ function instance$4($$self, $$props, $$invalidate) {
 
   function moneyfield_value_binding(value) {
     transaction.value = value;
-    $$invalidate(1, transaction);
+    $$invalidate(4, transaction);
   }
 
   function moneyfield_inputRef_binding(value) {
     moneyInput = value;
-    $$invalidate(2, moneyInput);
+    $$invalidate(1, moneyInput);
   }
 
   function textfield_value_binding(value) {
     transaction.comment = value;
-    $$invalidate(1, transaction);
+    $$invalidate(4, transaction);
   }
 
   var click_handler_1 = function click_handler_1() {
@@ -2777,10 +2749,10 @@ function instance$4($$self, $$props, $$invalidate) {
 
   $$self.$inject_state = function ($$props) {
     if ("id" in $$props) $$invalidate(0, id = $$props.id);
-    if ("moneyInput" in $$props) $$invalidate(2, moneyInput = $$props.moneyInput);
-    if ("transactionsPaginated" in $$props) $$invalidate(3, transactionsPaginated = $$props.transactionsPaginated);
-    if ("selectedTransactionsById" in $$props) $$invalidate(4, selectedTransactionsById = $$props.selectedTransactionsById);
-    if ("transaction" in $$props) $$invalidate(1, transaction = $$props.transaction);
+    if ("moneyInput" in $$props) $$invalidate(1, moneyInput = $$props.moneyInput);
+    if ("transactionsPaginated" in $$props) $$invalidate(2, transactionsPaginated = $$props.transactionsPaginated);
+    if ("selectedTransactionsById" in $$props) $$invalidate(3, selectedTransactionsById = $$props.selectedTransactionsById);
+    if ("transaction" in $$props) $$invalidate(4, transaction = $$props.transaction);
     if ("isNegative" in $$props) $$invalidate(5, isNegative = $$props.isNegative);
   };
 
@@ -2788,15 +2760,7 @@ function instance$4($$self, $$props, $$invalidate) {
     $$self.$inject_state($$props.$$inject);
   }
 
-  $$self.$$.update = function () {
-    if ($$self.$$.dirty &
-    /*transaction*/
-    2) {
-       console.log(transaction);
-    }
-  };
-
-  return [id, transaction, moneyInput, transactionsPaginated, selectedTransactionsById, isNegative, handleMoneyInputEnterPressed, handleDelete, handleSaveTransaction, click_handler, envelopetransactions_selectedTransactionsById_binding, moneyfield_isNegative_binding, moneyfield_value_binding, moneyfield_inputRef_binding, textfield_value_binding, click_handler_1];
+  return [id, moneyInput, transactionsPaginated, selectedTransactionsById, transaction, isNegative, handleMoneyInputEnterPressed, handleDelete, handleSaveTransaction, click_handler, envelopetransactions_selectedTransactionsById_binding, moneyfield_isNegative_binding, moneyfield_value_binding, moneyfield_inputRef_binding, textfield_value_binding, click_handler_1];
 }
 
 var U5Bidu5D = /*#__PURE__*/function (_SvelteComponentDev) {
@@ -2825,7 +2789,7 @@ var U5Bidu5D = /*#__PURE__*/function (_SvelteComponentDev) {
     if (
     /*id*/
     ctx[0] === undefined && !("id" in props)) {
-      console_1.warn("<U5Bidu5D> was created without expected prop 'id'");
+      console.warn("<U5Bidu5D> was created without expected prop 'id'");
     }
 
     return _this;

@@ -1,4 +1,4 @@
-import { G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, P as _createClass, Q as SvelteComponentDev, R as validate_slots, aE as svg_element, X as claim_element, Y as children, $ as detach_dev, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a4 as append_dev, a6 as _slicedToArray, a8 as noop } from './client.7c0c4172.js';
+import { G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, P as _createClass, Q as SvelteComponentDev, R as validate_slots, aA as svg_element, X as claim_element, Y as children, $ as detach_dev, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a4 as append_dev, ad as _slicedToArray, a6 as noop } from './client.7a959cea.js';
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
@@ -238,4 +238,61 @@ var PlusIcon = /*#__PURE__*/function (_SvelteComponentDev) {
   return PlusIcon;
 }(SvelteComponentDev);
 
-export { PlusIcon as P };
+var MOVE_TOLERANCE = 50;
+function longpress(node) {
+  var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 400;
+  var timer;
+  var startPosition;
+
+  var handleMouseup = function handleMouseup() {
+    clearTimeout(timer);
+  };
+
+  var handleMouseMove = function handleMouseMove(event) {
+    var position = {
+      x: event.clientX,
+      y: event.clientY
+    };
+    var dx = position.x - startPosition.x;
+    var dy = position.y - startPosition.y;
+    var distSqr = dx * dx + dy * dy;
+
+    if (distSqr > MOVE_TOLERANCE) {
+      clearTimeout(timer);
+    }
+  };
+
+  var handleMousedown = function handleMousedown(event) {
+    startPosition = {
+      x: event.clientX,
+      y: event.clientY
+    };
+    timer = setTimeout(function () {
+      console.log('LONGPRESS', node, event);
+      node.dispatchEvent(new CustomEvent('longpress', {
+        detail: {
+          startDragPosition: {
+            x: event.clientX,
+            y: event.clientY
+          }
+        }
+      }));
+    }, duration);
+    node.addEventListener('mouseup', handleMouseup);
+    node.addEventListener('mousemove', handleMouseMove);
+  };
+
+  node.addEventListener('mousedown', handleMousedown);
+  return {
+    update: function update(newDuration) {
+      duration = newDuration;
+    },
+    destroy: function destroy() {
+      node.removeEventListener('mousedown', handleMousedown);
+      node.removeEventListener('mouseup', handleMouseup);
+      node.removeEventListener('mousemove', handleMouseMove);
+    }
+  };
+}
+
+export { PlusIcon as P, longpress as l };

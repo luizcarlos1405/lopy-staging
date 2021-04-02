@@ -1,6 +1,6 @@
-import { d as decrementActiveDropZoneCount, _ as _toConsumableArray, S as SHADOW_ITEM_MARKER_PROPERTY_NAME, I as ITEM_ID_KEY, a as SHADOW_PLACEHOLDER_ITEM_ID, i as incrementActiveDropZoneCount, s as styleDraggable, m as morphDraggedElementToBeLike, b as decorateShadowEl, c as _defineProperty, e as createDraggedElementFrom, f as styleActiveDropZones, p as preventShrinking, g as dispatchConsiderEvent, T as TRIGGERS, h as SOURCES, j as areObjectsShallowEqual, k as areArraysShallowEqualSameOrder, l as styleInactiveDropZones, n as moveDraggedElementToWasDroppedState, o as getBoundingRectNoTransforms, q as hideOriginalDragTarget, r as armWindowScroller, D as DRAGGED_ENTERED_EVENT_NAME, t as DRAGGED_LEFT_EVENT_NAME, u as DRAGGED_OVER_INDEX_EVENT_NAME, v as DRAGGED_LEFT_DOCUMENT_EVENT_NAME, w as observe, x as disarmWindowScroller, y as unobserve, z as DRAGGED_LEFT_TYPES, A as dispatchFinalizeEvent, B as unDecorateShadowElement, C as dndzone$2, E as toString, F as _typeof, G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, P as _createClass, Q as SvelteComponentDev, R as validate_slots, U as element, V as text, W as space, X as claim_element, Y as children, Z as claim_text, $ as detach_dev, a0 as claim_space, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a4 as append_dev, a5 as listen_dev, a6 as _slicedToArray, a7 as set_data_dev, a8 as noop, a9 as bubble, aa as validate_each_argument, ab as validate_each_keys, ac as create_component, ad as claim_component, ae as mount_component, af as transition_in, ag as transition_out, ah as destroy_component, ai as validate_store, aj as component_subscribe, ak as goto, al as assign, am as get_spread_update, an as get_spread_object, ao as action_destroyer, ap as group_outros, aq as update_keyed_each, ar as check_outros, as as is_function, at as run_all, au as set_store_value, av as outro_and_destroy_block } from './client.7c0c4172.js';
-import { _ as _objectWithoutProperties, f as formatMoney, P as Page, T as TopBar, e as envelopes, a as actions, R as ROUTES } from './constants.ed8cb815.js';
-import { P as PlusIcon } from './PlusIcon.0d003182.js';
+import { d as decrementActiveDropZoneCount, _ as _toConsumableArray, S as SHADOW_ITEM_MARKER_PROPERTY_NAME, I as ITEM_ID_KEY, a as SHADOW_PLACEHOLDER_ITEM_ID, i as incrementActiveDropZoneCount, s as styleDraggable, m as morphDraggedElementToBeLike, b as decorateShadowEl, c as _defineProperty, e as createDraggedElementFrom, f as styleActiveDropZones, p as preventShrinking, g as dispatchConsiderEvent, T as TRIGGERS, h as SOURCES, j as areObjectsShallowEqual, k as areArraysShallowEqualSameOrder, l as styleInactiveDropZones, n as moveDraggedElementToWasDroppedState, o as getBoundingRectNoTransforms, q as hideOriginalDragTarget, r as armWindowScroller, D as DRAGGED_ENTERED_EVENT_NAME, t as DRAGGED_LEFT_EVENT_NAME, u as DRAGGED_OVER_INDEX_EVENT_NAME, v as DRAGGED_LEFT_DOCUMENT_EVENT_NAME, w as observe, x as disarmWindowScroller, y as unobserve, z as DRAGGED_LEFT_TYPES, A as dispatchFinalizeEvent, B as unDecorateShadowElement, C as dndzone$2, E as toString, F as _typeof, G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, P as _createClass, Q as SvelteComponentDev, R as validate_slots, U as element, V as text, W as space, X as claim_element, Y as children, Z as claim_text, $ as detach_dev, a0 as claim_space, a1 as attr_dev, a2 as add_location, a3 as insert_dev, a4 as append_dev, a5 as listen_dev, a6 as noop, a7 as bubble, a8 as validate_each_argument, a9 as validate_each_keys, aa as create_component, ab as claim_component, ac as mount_component, ad as _slicedToArray, ae as transition_in, af as transition_out, ag as destroy_component, ah as validate_store, ai as component_subscribe, aj as goto, ak as action_destroyer, al as group_outros, am as update_keyed_each, an as check_outros, ao as is_function, ap as run_all, aq as set_store_value, ar as outro_and_destroy_block } from './client.7a959cea.js';
+import { _ as _objectWithoutProperties, f as formatMoney, P as Page, T as TopBar, e as envelopes, a as actions, R as ROUTES } from './constants.584939f5.js';
+import { P as PlusIcon, l as longpress } from './longpress.b58a61bc.js';
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -351,7 +351,8 @@ function dndzone(node, options) {
     dropTargetStyle: DEFAULT_DROP_TARGET_STYLE,
     dropTargetClasses: [],
     transformDraggedElement: function transformDraggedElement() {},
-    centreDraggedOnCursor: false
+    centreDraggedOnCursor: false,
+    customStartEvent: ''
   };
   var elToIdx = new Map();
 
@@ -423,6 +424,16 @@ function dndzone(node, options) {
     currentMousePosition = _objectSpread({}, dragStartMousePosition);
     originalDragTarget = e.currentTarget;
     addMaybeListeners();
+  }
+
+  function handleCustomEvent(e) {
+    originalDragTarget = e.currentTarget;
+
+    if (e.detail && e.detail.startDragPosition) {
+      dragStartMousePosition = e.detail.startDragPosition;
+      currentMousePosition = _objectSpread({}, dragStartMousePosition);
+      handleDragStart();
+    }
   }
 
   function handleDragStart() {
@@ -506,7 +517,9 @@ function dndzone(node, options) {
         _ref$transformDragged = _ref.transformDraggedElement,
         transformDraggedElement = _ref$transformDragged === void 0 ? function () {} : _ref$transformDragged,
         _ref$centreDraggedOnC = _ref.centreDraggedOnCursor,
-        centreDraggedOnCursor = _ref$centreDraggedOnC === void 0 ? false : _ref$centreDraggedOnC;
+        centreDraggedOnCursor = _ref$centreDraggedOnC === void 0 ? false : _ref$centreDraggedOnC,
+        _ref$customStartEvent = _ref.customStartEvent,
+        customStartEvent = _ref$customStartEvent === void 0 ? '' : _ref$customStartEvent;
     config.dropAnimationDurationMs = dropAnimationDurationMs;
 
     if (config.type && newType !== config.type) {
@@ -518,7 +531,8 @@ function dndzone(node, options) {
     config.items = _toConsumableArray(items);
     config.dragDisabled = dragDisabled;
     config.transformDraggedElement = transformDraggedElement;
-    config.centreDraggedOnCursor = centreDraggedOnCursor; // realtime update for dropTargetStyle
+    config.centreDraggedOnCursor = centreDraggedOnCursor;
+    config.customStartEvent = customStartEvent; // realtime update for dropTargetStyle
 
     if (isWorkingOnPreviousDrag && !finalizingPreviousDrag && (!areObjectsShallowEqual(dropTargetStyle, config.dropTargetStyle) || !areArraysShallowEqualSameOrder(dropTargetClasses, config.dropTargetClasses))) {
       styleInactiveDropZones([node], function () {
@@ -568,12 +582,21 @@ function dndzone(node, options) {
         return "continue";
       }
 
-      draggableEl.removeEventListener("mousedown", elToMouseDownListener.get(draggableEl));
-      draggableEl.removeEventListener("touchstart", elToMouseDownListener.get(draggableEl));
+      if (config.customStartEvent) {
+        draggableEl.removeEventListener(config.customStartEvent, elToMouseDownListener.get(draggableEl));
+      } else {
+        draggableEl.removeEventListener("mousedown", elToMouseDownListener.get(draggableEl));
+        draggableEl.removeEventListener("touchstart", elToMouseDownListener.get(draggableEl));
+      }
 
       if (!dragDisabled) {
-        draggableEl.addEventListener("mousedown", handleMouseDown);
-        draggableEl.addEventListener("touchstart", handleMouseDown);
+        if (config.customStartEvent) {
+          draggableEl.addEventListener(config.customStartEvent, handleCustomEvent);
+        } else {
+          draggableEl.addEventListener("mousedown", handleMouseDown);
+          draggableEl.addEventListener("touchstart", handleMouseDown);
+        }
+
         elToMouseDownListener.set(draggableEl, handleMouseDown);
       } // updating the idx
 
@@ -649,7 +672,8 @@ function validateOptions(options) {
       transformDraggedElement = options.transformDraggedElement,
       autoAriaDisabled = options.autoAriaDisabled,
       centreDraggedOnCursor = options.centreDraggedOnCursor,
-      rest = _objectWithoutProperties(options, ["items", "flipDurationMs", "type", "dragDisabled", "dropFromOthersDisabled", "dropTargetStyle", "dropTargetClasses", "transformDraggedElement", "autoAriaDisabled", "centreDraggedOnCursor"]);
+      customStartEvent = options.customStartEvent,
+      rest = _objectWithoutProperties(options, ["items", "flipDurationMs", "type", "dragDisabled", "dropFromOthersDisabled", "dropTargetStyle", "dropTargetClasses", "transformDraggedElement", "autoAriaDisabled", "centreDraggedOnCursor", "customStartEvent"]);
   /*eslint-enable*/
 
 
@@ -753,18 +777,18 @@ function create_fragment(ctx) {
     },
     h: function hydrate() {
       attr_dev(div0, "class", "text-5xl");
-      add_location(div0, file, 15, 2, 315);
+      add_location(div0, file, 13, 2, 252);
       attr_dev(div1, "class", "text-2xl truncate");
-      add_location(div1, file, 19, 4, 419);
+      add_location(div1, file, 17, 4, 356);
       attr_dev(div2, "class", "font-mono text-base");
-      add_location(div2, file, 22, 4, 479);
+      add_location(div2, file, 20, 4, 416);
       attr_dev(div3, "class", "text-dark flex flex-col overflow-hidden");
-      add_location(div3, file, 18, 2, 361);
+      add_location(div3, file, 16, 2, 298);
       attr_dev(div4, "id",
       /*_id*/
       ctx[0]);
       attr_dev(div4, "class", "bg-primary border-box flex space-x-2 rounded-3xl bg-primary shadow p-2");
-      add_location(div4, file, 10, 0, 201);
+      add_location(div4, file, 8, 0, 138);
     },
     m: function mount(target, anchor) {
       insert_dev(target, div4, anchor);
@@ -785,34 +809,7 @@ function create_fragment(ctx) {
         mounted = true;
       }
     },
-    p: function update(ctx, _ref) {
-      var _ref2 = _slicedToArray(_ref, 1),
-          dirty = _ref2[0];
-
-      if (dirty &
-      /*emoji*/
-      2) set_data_dev(t0,
-      /*emoji*/
-      ctx[1]);
-      if (dirty &
-      /*name*/
-      4) set_data_dev(t2,
-      /*name*/
-      ctx[2]);
-      if (dirty &
-      /*value*/
-      8 && t4_value !== (t4_value = formatMoney(
-      /*value*/
-      ctx[3]) + "")) set_data_dev(t4, t4_value);
-
-      if (dirty &
-      /*_id*/
-      1) {
-        attr_dev(div4, "id",
-        /*_id*/
-        ctx[0]);
-      }
-    },
+    p: noop,
     i: noop,
     o: noop,
     d: function destroy(detaching) {
@@ -836,16 +833,13 @@ function instance($$self, $$props, $$invalidate) {
       slots = _$$props$$$slots === void 0 ? {} : _$$props$$$slots,
       $$scope = $$props.$$scope;
   validate_slots("Envelope", slots, []);
-  var _id = $$props._id;
-  var _$$props$emoji = $$props.emoji,
-      emoji = _$$props$emoji === void 0 ? "💵" : _$$props$emoji;
-  var _$$props$name = $$props.name,
-      name = _$$props$name === void 0 ? "Envelope" : _$$props$name;
-  var _$$props$value = $$props.value,
-      value = _$$props$value === void 0 ? 0 : _$$props$value;
-  var _$$props$transactions = $$props.transactions,
-      transactions = _$$props$transactions === void 0 ? [] : _$$props$transactions;
-  var writable_props = ["_id", "emoji", "name", "value", "transactions"];
+  var envelope = $$props.envelope;
+  var _envelope = envelope,
+      _id = _envelope._id,
+      emoji = _envelope.emoji,
+      name = _envelope.name,
+      value = _envelope.value;
+  var writable_props = ["envelope"];
   Object.keys($$props).forEach(function (key) {
     if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn("<Envelope> was created with unknown prop '".concat(key, "'"));
   });
@@ -855,37 +849,33 @@ function instance($$self, $$props, $$invalidate) {
   }
 
   $$self.$$set = function ($$props) {
-    if ("_id" in $$props) $$invalidate(0, _id = $$props._id);
-    if ("emoji" in $$props) $$invalidate(1, emoji = $$props.emoji);
-    if ("name" in $$props) $$invalidate(2, name = $$props.name);
-    if ("value" in $$props) $$invalidate(3, value = $$props.value);
-    if ("transactions" in $$props) $$invalidate(4, transactions = $$props.transactions);
+    if ("envelope" in $$props) $$invalidate(4, envelope = $$props.envelope);
   };
 
   $$self.$capture_state = function () {
     return {
       formatMoney: formatMoney,
+      envelope: envelope,
       _id: _id,
       emoji: emoji,
       name: name,
-      value: value,
-      transactions: transactions
+      value: value
     };
   };
 
   $$self.$inject_state = function ($$props) {
+    if ("envelope" in $$props) $$invalidate(4, envelope = $$props.envelope);
     if ("_id" in $$props) $$invalidate(0, _id = $$props._id);
     if ("emoji" in $$props) $$invalidate(1, emoji = $$props.emoji);
     if ("name" in $$props) $$invalidate(2, name = $$props.name);
     if ("value" in $$props) $$invalidate(3, value = $$props.value);
-    if ("transactions" in $$props) $$invalidate(4, transactions = $$props.transactions);
   };
 
   if ($$props && "$$inject" in $$props) {
     $$self.$inject_state($$props.$$inject);
   }
 
-  return [_id, emoji, name, value, transactions, click_handler];
+  return [_id, emoji, name, value, envelope, click_handler];
 }
 
 var Envelope = /*#__PURE__*/function (_SvelteComponentDev) {
@@ -900,11 +890,7 @@ var Envelope = /*#__PURE__*/function (_SvelteComponentDev) {
 
     _this = _super.call(this, options);
     init(_assertThisInitialized(_this), options, instance, create_fragment, safe_not_equal, {
-      _id: 0,
-      emoji: 1,
-      name: 2,
-      value: 3,
-      transactions: 4
+      envelope: 4
     });
     dispatch_dev("SvelteRegisterComponent", {
       component: _assertThisInitialized(_this),
@@ -916,48 +902,16 @@ var Envelope = /*#__PURE__*/function (_SvelteComponentDev) {
     var props = options.props || {};
 
     if (
-    /*_id*/
-    ctx[0] === undefined && !("_id" in props)) {
-      console.warn("<Envelope> was created without expected prop '_id'");
+    /*envelope*/
+    ctx[4] === undefined && !("envelope" in props)) {
+      console.warn("<Envelope> was created without expected prop 'envelope'");
     }
 
     return _this;
   }
 
   _createClass(Envelope, [{
-    key: "_id",
-    get: function get() {
-      throw new Error("<Envelope>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    },
-    set: function set(value) {
-      throw new Error("<Envelope>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    }
-  }, {
-    key: "emoji",
-    get: function get() {
-      throw new Error("<Envelope>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    },
-    set: function set(value) {
-      throw new Error("<Envelope>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    }
-  }, {
-    key: "name",
-    get: function get() {
-      throw new Error("<Envelope>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    },
-    set: function set(value) {
-      throw new Error("<Envelope>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    }
-  }, {
-    key: "value",
-    get: function get() {
-      throw new Error("<Envelope>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    },
-    set: function set(value) {
-      throw new Error("<Envelope>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    }
-  }, {
-    key: "transactions",
+    key: "envelope",
     get: function get() {
       throw new Error("<Envelope>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     },
@@ -978,7 +932,7 @@ function get_each_context(ctx, list, i) {
   var child_ctx = ctx.slice();
   child_ctx[6] = list[i];
   return child_ctx;
-} // (24:2) <TopBar>
+} // (25:2) <TopBar>
 
 
 function create_default_slot_1(ctx) {
@@ -1013,7 +967,7 @@ function create_default_slot_1(ctx) {
     },
     h: function hydrate() {
       attr_dev(div, "class", "cursor-pointer");
-      add_location(div, file$1, 25, 4, 721);
+      add_location(div, file$1, 26, 4, 787);
     },
     m: function mount(target, anchor) {
       insert_dev(target, t, anchor);
@@ -1050,11 +1004,11 @@ function create_default_slot_1(ctx) {
     block: block,
     id: create_default_slot_1.name,
     type: "slot",
-    source: "(24:2) <TopBar>",
+    source: "(25:2) <TopBar>",
     ctx: ctx
   });
   return block;
-} // (41:4) {#each $envelopes as envelope (envelope._id)}
+} // (43:4) {#each $envelopes as envelope (envelope._id)}
 
 
 function create_each_block(key_1, ctx) {
@@ -1062,9 +1016,8 @@ function create_each_block(key_1, ctx) {
   var envelope;
   var t;
   var current;
-  var envelope_spread_levels = [
-  /*envelope*/
-  ctx[6]];
+  var mounted;
+  var dispose;
 
   function click_handler_1() {
     return (
@@ -1075,14 +1028,12 @@ function create_each_block(key_1, ctx) {
     );
   }
 
-  var envelope_props = {};
-
-  for (var i = 0; i < envelope_spread_levels.length; i += 1) {
-    envelope_props = assign(envelope_props, envelope_spread_levels[i]);
-  }
-
   envelope = new Envelope({
-    props: envelope_props,
+    props: {
+      envelope:
+      /*envelope*/
+      ctx[6]
+    },
     $$inline: true
   });
   envelope.$on("click", click_handler_1);
@@ -1107,7 +1058,7 @@ function create_each_block(key_1, ctx) {
     },
     h: function hydrate() {
       attr_dev(span, "class", "outline-none cursor-unset");
-      add_location(span, file$1, 41, 6, 1146);
+      add_location(span, file$1, 43, 6, 1249);
       this.first = span;
     },
     m: function mount(target, anchor) {
@@ -1115,14 +1066,20 @@ function create_each_block(key_1, ctx) {
       mount_component(envelope, span, null);
       append_dev(span, t);
       current = true;
+
+      if (!mounted) {
+        dispose = action_destroyer(longpress.call(null, span));
+        mounted = true;
+      }
     },
     p: function update(new_ctx, dirty) {
       ctx = new_ctx;
-      var envelope_changes = dirty &
+      var envelope_changes = {};
+      if (dirty &
       /*$envelopes*/
-      1 ? get_spread_update(envelope_spread_levels, [get_spread_object(
+      1) envelope_changes.envelope =
       /*envelope*/
-      ctx[6])]) : {};
+      ctx[6];
       envelope.$set(envelope_changes);
     },
     i: function intro(local) {
@@ -1137,17 +1094,19 @@ function create_each_block(key_1, ctx) {
     d: function destroy(detaching) {
       if (detaching) detach_dev(span);
       destroy_component(envelope);
+      mounted = false;
+      dispose();
     }
   };
   dispatch_dev("SvelteRegisterBlock", {
     block: block,
     id: create_each_block.name,
     type: "each",
-    source: "(41:4) {#each $envelopes as envelope (envelope._id)}",
+    source: "(43:4) {#each $envelopes as envelope (envelope._id)}",
     ctx: ctx
   });
   return block;
-} // (23:0) <Page>
+} // (24:0) <Page>
 
 
 function create_default_slot(ctx) {
@@ -1220,7 +1179,7 @@ function create_default_slot(ctx) {
     },
     h: function hydrate() {
       attr_dev(div, "class", "w-full p-4 flex flex-col space-y-3");
-      add_location(div, file$1, 30, 2, 851);
+      add_location(div, file$1, 31, 2, 917);
     },
     m: function mount(target, anchor) {
       mount_component(topbar, target, anchor);
@@ -1241,7 +1200,8 @@ function create_default_slot(ctx) {
           flipDurationMs: 200,
           dropTargetStyle: {
             opacity: "50%"
-          }
+          },
+          customStartEvent: "longpress"
         })), listen_dev(div, "consider",
         /*handleDnd*/
         ctx[2], false, false, false), listen_dev(div, "finalize",
@@ -1286,7 +1246,8 @@ function create_default_slot(ctx) {
         flipDurationMs: 200,
         dropTargetStyle: {
           opacity: "50%"
-        }
+        },
+        customStartEvent: "longpress"
       });
     },
     i: function intro(local) {
@@ -1325,7 +1286,7 @@ function create_default_slot(ctx) {
     block: block,
     id: create_default_slot.name,
     type: "slot",
-    source: "(23:0) <Page>",
+    source: "(24:0) <Page>",
     ctx: ctx
   });
   return block;
@@ -1420,7 +1381,7 @@ function instance$1($$self, $$props, $$invalidate) {
     var detail = _ref3.detail;
     set_store_value(envelopes, $envelopes = detail.items, $envelopes);
 
-    if (detail.info.trigger === "droppedIntoZone") {
+    if (detail.info.trigger === TRIGGERS.DROPPED_INTO_ZONE) {
       $actions.reorderEnvelopes(detail.items);
     }
   };
@@ -1448,7 +1409,9 @@ function instance$1($$self, $$props, $$invalidate) {
       goto: goto,
       Page: Page,
       dndzone: dndzone$1,
+      TRIGGERS: TRIGGERS,
       ROUTES: ROUTES,
+      longpress: longpress,
       handleEnvelopeClicked: handleEnvelopeClicked,
       handleDnd: handleDnd,
       $envelopes: $envelopes,

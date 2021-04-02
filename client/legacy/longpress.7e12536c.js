@@ -1,4 +1,4 @@
-import { F as _inherits, G as _getPrototypeOf, H as _possibleConstructorReturn, J as _classCallCheck, K as init, L as safe_not_equal, M as _assertThisInitialized, N as dispatch_dev, O as _createClass, P as SvelteComponentDev, Q as validate_slots, aB as svg_element, W as claim_element, X as children, Z as detach_dev, a0 as attr_dev, a1 as add_location, a2 as insert_dev, a3 as append_dev, ac as _slicedToArray, a5 as noop } from './client.2be03181.js';
+import { F as _inherits, G as _getPrototypeOf, H as _possibleConstructorReturn, J as _classCallCheck, K as init, L as safe_not_equal, M as _assertThisInitialized, N as dispatch_dev, O as _createClass, P as SvelteComponentDev, Q as validate_slots, aB as svg_element, W as claim_element, X as children, Z as detach_dev, a0 as attr_dev, a1 as add_location, a2 as insert_dev, a3 as append_dev, ac as _slicedToArray, a5 as noop } from './client.5349a614.js';
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
@@ -249,9 +249,10 @@ function longpress(node) {
   };
 
   var handleMouseMove = function handleMouseMove(event) {
+    var c = event.touches ? event.touches[0] : event;
     var position = {
-      x: event.clientX,
-      y: event.clientY
+      x: c.clientX,
+      y: c.clientY
     };
     var dx = position.x - startPosition.x;
     var dy = position.y - startPosition.y;
@@ -263,9 +264,10 @@ function longpress(node) {
   };
 
   var handleMousedown = function handleMousedown(event) {
+    var c = event.touches ? event.touches[0] : event;
     startPosition = {
-      x: event.clientX,
-      y: event.clientY
+      x: c.clientX,
+      y: c.clientY
     };
     timer = setTimeout(function () {
       console.log('LONGPRESS', node, event);
@@ -280,9 +282,12 @@ function longpress(node) {
     }, duration);
     node.addEventListener('mouseup', handleMouseup);
     node.addEventListener('mousemove', handleMouseMove);
+    node.addEventListener('touchend', handleMouseup);
+    node.addEventListener('touchmove', handleMouseMove);
   };
 
   node.addEventListener('mousedown', handleMousedown);
+  node.addEventListener('touchstart', handleMousedown);
   return {
     update: function update(newDuration) {
       duration = newDuration;

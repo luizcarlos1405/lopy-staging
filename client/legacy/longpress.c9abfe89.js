@@ -1,4 +1,4 @@
-import { F as _inherits, G as _getPrototypeOf, H as _possibleConstructorReturn, J as _classCallCheck, K as init, L as safe_not_equal, M as _assertThisInitialized, N as dispatch_dev, O as _createClass, P as SvelteComponentDev, Q as validate_slots, aB as svg_element, W as claim_element, X as children, Z as detach_dev, a0 as attr_dev, a1 as add_location, a2 as insert_dev, a3 as append_dev, ac as _slicedToArray, a5 as noop } from './client.5349a614.js';
+import { F as _inherits, G as _getPrototypeOf, H as _possibleConstructorReturn, J as _classCallCheck, K as init, L as safe_not_equal, M as _assertThisInitialized, N as dispatch_dev, O as _createClass, P as SvelteComponentDev, Q as validate_slots, aB as svg_element, W as claim_element, X as children, Z as detach_dev, a0 as attr_dev, a1 as add_location, a2 as insert_dev, a3 as append_dev, ac as _slicedToArray, a5 as noop } from './client.89d2ae15.js';
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
@@ -270,13 +270,9 @@ function longpress(node) {
       y: c.clientY
     };
     timer = setTimeout(function () {
-      console.log('LONGPRESS', node, event);
       node.dispatchEvent(new CustomEvent('longpress', {
         detail: {
-          startDragPosition: {
-            x: event.clientX,
-            y: event.clientY
-          }
+          startDragPosition: startPosition
         }
       }));
     }, duration);

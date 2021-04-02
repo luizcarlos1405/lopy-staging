@@ -1497,6 +1497,10 @@ function get_current_component() {
   return current_component;
 }
 
+function onMount(fn) {
+  get_current_component().$$.on_mount.push(fn);
+}
+
 function afterUpdate(fn) {
   get_current_component().$$.after_update.push(fn);
 }
@@ -5161,15 +5165,15 @@ var App = /*#__PURE__*/function (_SvelteComponentDev) {
 var ignore = [];
 var components = [{
   js: function js() {
-    return Promise.all([import('./index.1cb890bb.js'), __inject_styles(["client-76e54d79.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./index.b6a8058e.js'), __inject_styles(["client-76e54d79.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./[id].6e1c48af.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-d3f36817.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./[id].be115af2.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-d3f36817.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./[id].eb62c878.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-25d8503b.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./[id].e5fa9144.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-25d8503b.css"])]).then(function(x) { return x[0]; });
   }
 }];
 var routes = function (d) {
@@ -6090,6 +6094,6 @@ start$1({
   target: document.body
 });
 
-export { claim_space as $, dispatchFinalizeEvent as A, unDecorateShadowElement as B, dndzone as C, DRAGGED_ENTERED_EVENT_NAME as D, toString as E, _inherits as F, _getPrototypeOf as G, _possibleConstructorReturn as H, ITEM_ID_KEY as I, _classCallCheck as J, init as K, safe_not_equal as L, _assertThisInitialized as M, dispatch_dev as N, _createClass as O, SvelteComponentDev as P, validate_slots as Q, element as R, SHADOW_ITEM_MARKER_PROPERTY_NAME as S, TRIGGERS as T, text as U, space as V, claim_element as W, children as X, claim_text as Y, detach_dev as Z, _toConsumableArray$1 as _, SHADOW_PLACEHOLDER_ITEM_ID as a, attr_dev as a0, add_location as a1, insert_dev as a2, append_dev as a3, listen_dev as a4, noop as a5, bubble as a6, validate_each_argument as a7, validate_each_keys as a8, create_component as a9, create_in_transition as aA, svg_element as aB, globals as aC, destroy_each as aD, empty as aE, HtmlTag as aF, toggle_class as aG, set_data_dev as aH, binding_callbacks as aI, bind as aJ, add_flush_callback as aK, compute_rest_props as aL, assign as aM, exclude_internal_props as aN, set_attributes as aO, set_input_value as aP, get_spread_update as aQ, fix_position as aR, add_transform as aS, create_animation as aT, create_out_transition as aU, fix_and_outro_and_destroy_block as aV, create_bidirectional_transition as aW, createEventDispatcher as aX, handle_promise as aY, claim_component as aa, mount_component as ab, _slicedToArray as ac, transition_in as ad, transition_out as ae, destroy_component as af, validate_store as ag, component_subscribe as ah, goto as ai, action_destroyer as aj, group_outros as ak, update_keyed_each as al, check_outros as am, is_function as an, run_all as ao, set_store_value as ap, outro_and_destroy_block as aq, create_slot as ar, update_slot as as, _toConsumableArray as at, _typeof as au, createCommonjsModule as av, writable as aw, readable as ax, regenerator as ay, add_render_callback as az, decorateShadowEl as b, _defineProperty as c, decrementActiveDropZoneCount as d, createDraggedElementFrom as e, styleActiveDropZones as f, dispatchConsiderEvent as g, SOURCES as h, incrementActiveDropZoneCount as i, areObjectsShallowEqual as j, areArraysShallowEqualSameOrder as k, styleInactiveDropZones as l, morphDraggedElementToBeLike as m, moveDraggedElementToWasDroppedState as n, getBoundingRectNoTransforms as o, preventShrinking as p, hideOriginalDragTarget as q, armWindowScroller as r, styleDraggable as s, DRAGGED_LEFT_EVENT_NAME as t, DRAGGED_OVER_INDEX_EVENT_NAME as u, DRAGGED_LEFT_DOCUMENT_EVENT_NAME as v, observe as w, disarmWindowScroller as x, unobserve as y, DRAGGED_LEFT_TYPES as z };
+export { claim_space as $, dispatchFinalizeEvent as A, unDecorateShadowElement as B, dndzone as C, DRAGGED_ENTERED_EVENT_NAME as D, toString as E, _inherits as F, _getPrototypeOf as G, _possibleConstructorReturn as H, ITEM_ID_KEY as I, _classCallCheck as J, init as K, safe_not_equal as L, _assertThisInitialized as M, dispatch_dev as N, _createClass as O, SvelteComponentDev as P, validate_slots as Q, element as R, SHADOW_ITEM_MARKER_PROPERTY_NAME as S, TRIGGERS as T, text as U, space as V, claim_element as W, children as X, claim_text as Y, detach_dev as Z, _toConsumableArray$1 as _, SHADOW_PLACEHOLDER_ITEM_ID as a, attr_dev as a0, add_location as a1, insert_dev as a2, append_dev as a3, listen_dev as a4, noop as a5, bubble as a6, validate_each_argument as a7, validate_each_keys as a8, create_component as a9, regenerator as aA, add_render_callback as aB, create_in_transition as aC, svg_element as aD, destroy_each as aE, empty as aF, HtmlTag as aG, toggle_class as aH, set_data_dev as aI, binding_callbacks as aJ, bind as aK, add_flush_callback as aL, compute_rest_props as aM, assign as aN, exclude_internal_props as aO, set_attributes as aP, set_input_value as aQ, get_spread_update as aR, fix_position as aS, add_transform as aT, create_animation as aU, create_out_transition as aV, fix_and_outro_and_destroy_block as aW, create_bidirectional_transition as aX, createEventDispatcher as aY, handle_promise as aZ, claim_component as aa, mount_component as ab, _slicedToArray as ac, transition_in as ad, transition_out as ae, destroy_component as af, validate_store as ag, component_subscribe as ah, onMount as ai, goto as aj, globals as ak, action_destroyer as al, group_outros as am, update_keyed_each as an, check_outros as ao, is_function as ap, run_all as aq, set_store_value as ar, outro_and_destroy_block as as, create_slot as at, update_slot as au, _toConsumableArray as av, _typeof as aw, createCommonjsModule as ax, writable as ay, readable as az, decorateShadowEl as b, _defineProperty as c, decrementActiveDropZoneCount as d, createDraggedElementFrom as e, styleActiveDropZones as f, dispatchConsiderEvent as g, SOURCES as h, incrementActiveDropZoneCount as i, areObjectsShallowEqual as j, areArraysShallowEqualSameOrder as k, styleInactiveDropZones as l, morphDraggedElementToBeLike as m, moveDraggedElementToWasDroppedState as n, getBoundingRectNoTransforms as o, preventShrinking as p, hideOriginalDragTarget as q, armWindowScroller as r, styleDraggable as s, DRAGGED_LEFT_EVENT_NAME as t, DRAGGED_OVER_INDEX_EVENT_NAME as u, DRAGGED_LEFT_DOCUMENT_EVENT_NAME as v, observe as w, disarmWindowScroller as x, unobserve as y, DRAGGED_LEFT_TYPES as z };
 
 import __inject_styles from './inject_styles.fe622066.js';

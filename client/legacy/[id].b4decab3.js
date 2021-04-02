@@ -1,7 +1,7 @@
-import { F as _inherits, G as _getPrototypeOf, H as _possibleConstructorReturn, J as _classCallCheck, K as init, L as safe_not_equal, M as _assertThisInitialized, N as dispatch_dev, O as _createClass, P as SvelteComponentDev, Q as validate_slots, aD as svg_element, W as claim_element, X as children, Z as detach_dev, a0 as attr_dev, a1 as add_location, a2 as insert_dev, a3 as append_dev, ac as _slicedToArray, a5 as noop, ap as is_function, a7 as validate_each_argument, a8 as validate_each_keys, R as element, U as text, V as space, Y as claim_text, $ as claim_space, aH as toggle_class, al as action_destroyer, a4 as listen_dev, aI as set_data_dev, ad as transition_in, am as group_outros, ae as transition_out, ao as check_outros, aS as fix_position, aT as add_transform, aU as create_animation, aB as add_render_callback, aC as create_in_transition, aV as create_out_transition, aq as run_all, an as update_keyed_each, aW as fix_and_outro_and_destroy_block, aw as _typeof, aX as create_bidirectional_transition, aJ as binding_callbacks, aK as bind, aY as createEventDispatcher, a9 as create_component, aa as claim_component, ab as mount_component, aL as add_flush_callback, af as destroy_component, aA as regenerator, aZ as handle_promise, ag as validate_store, ah as component_subscribe, aj as goto, ak as globals, aF as empty } from './client.c7d2c4c8.js';
-import { c as cubicOut, f as formatMoney, s as scale, l as luxon, d as _objectWithoutProperties, g as stripNonDigits, h as expoOut, i as expoIn, P as Page, _ as _asyncToGenerator, T as TopBar, a as actions, j as isClient, R as ROUTES } from './constants.794c631b.js';
-import { l as longpress, P as PlusIcon } from './longpress.ab0c2983.js';
-import { T as TextField, B as Button, a as TrashIcon } from './Button.7ff5ef7f.js';
+import { F as _inherits, G as _getPrototypeOf, H as _possibleConstructorReturn, J as _classCallCheck, K as init, L as safe_not_equal, M as _assertThisInitialized, N as dispatch_dev, O as _createClass, P as SvelteComponentDev, Q as validate_slots, aD as svg_element, W as claim_element, X as children, Z as detach_dev, a0 as attr_dev, a1 as add_location, a2 as insert_dev, a3 as append_dev, ac as _slicedToArray, a5 as noop, ap as is_function, a7 as validate_each_argument, a8 as validate_each_keys, R as element, U as text, V as space, Y as claim_text, $ as claim_space, aH as toggle_class, al as action_destroyer, a4 as listen_dev, aI as set_data_dev, ad as transition_in, am as group_outros, ae as transition_out, ao as check_outros, aS as fix_position, aT as add_transform, aU as create_animation, aB as add_render_callback, aC as create_in_transition, aV as create_out_transition, aq as run_all, an as update_keyed_each, aW as fix_and_outro_and_destroy_block, aw as _typeof, aX as create_bidirectional_transition, aJ as binding_callbacks, aK as bind, aY as createEventDispatcher, a9 as create_component, aa as claim_component, ab as mount_component, aL as add_flush_callback, af as destroy_component, aA as regenerator, aZ as handle_promise, ag as validate_store, ah as component_subscribe, aj as goto, ak as globals, aF as empty } from './client.19b90b2b.js';
+import { c as cubicOut, f as formatMoney, s as scale, l as luxon, d as _objectWithoutProperties, g as stripNonDigits, h as expoOut, i as expoIn, P as Page, _ as _asyncToGenerator, T as TopBar, a as actions, j as isClient, R as ROUTES, e as envelopes } from './constants.684c6c98.js';
+import { l as longpress, P as PlusIcon } from './longpress.f4271fd9.js';
+import { T as TextField, B as Button, a as TrashIcon } from './Button.8ad5bf6c.js';
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
@@ -1534,7 +1534,7 @@ function _createSuper$4(Derived) { var hasNativeReflectConstruct = _isNativeRefl
 
 function _isNativeReflectConstruct$4() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 var Object_1 = globals.Object;
-var file$4 = "src/routes/envelope/[id].svelte"; // (69:4) {:else}
+var file$4 = "src/routes/envelope/[id].svelte"; // (74:4) {:else}
 
 function create_else_block_1(ctx) {
   var span;
@@ -1565,7 +1565,7 @@ function create_else_block_1(ctx) {
     },
     h: function hydrate() {
       attr_dev(span, "class", "cursor-pointer flex space-x-2 items-end");
-      add_location(span, file$4, 69, 6, 1980);
+      add_location(span, file$4, 74, 6, 2185);
     },
     m: function mount(target, anchor) {
       insert_dev(target, span, anchor);
@@ -1575,7 +1575,7 @@ function create_else_block_1(ctx) {
       if (!mounted) {
         dispose = listen_dev(span, "click",
         /*click_handler*/
-        ctx[9], false, false, false);
+        ctx[11], false, false, false);
         mounted = true;
       }
     },
@@ -1600,11 +1600,11 @@ function create_else_block_1(ctx) {
     block: block,
     id: create_else_block_1.name,
     type: "else",
-    source: "(69:4) {:else}",
+    source: "(74:4) {:else}",
     ctx: ctx
   });
   return block;
-} // (65:4) {#if Object.keys(selectedTransactionsById).length >= 1}
+} // (70:4) {#if Object.keys(selectedTransactionsById).length >= 1}
 
 
 function create_if_block_1(ctx) {
@@ -1633,7 +1633,7 @@ function create_if_block_1(ctx) {
       this.h();
     },
     h: function hydrate() {
-      add_location(span, file$4, 65, 6, 1883);
+      add_location(span, file$4, 70, 6, 2088);
     },
     m: function mount(target, anchor) {
       insert_dev(target, span, anchor);
@@ -1643,7 +1643,7 @@ function create_if_block_1(ctx) {
       if (!mounted) {
         dispose = listen_dev(span, "click",
         /*handleDelete*/
-        ctx[7], false, false, false);
+        ctx[8], false, false, false);
         mounted = true;
       }
     },
@@ -1668,15 +1668,26 @@ function create_if_block_1(ctx) {
     block: block,
     id: create_if_block_1.name,
     type: "if",
-    source: "(65:4) {#if Object.keys(selectedTransactionsById).length >= 1}",
+    source: "(70:4) {#if Object.keys(selectedTransactionsById).length >= 1}",
     ctx: ctx
   });
   return block;
-} // (63:2) <TopBar>
+} // (67:2) <TopBar>
 
 
 function create_default_slot_3(ctx) {
-  var t;
+  var _ctx$, _ctx$2;
+
+  var t0_value =
+  /*envelope*/
+  ((_ctx$ = ctx[6]) === null || _ctx$ === void 0 ? void 0 : _ctx$.name) + "";
+  var t0;
+  var t1;
+  var t2_value = formatMoney(
+  /*envelope*/
+  (_ctx$2 = ctx[6]) === null || _ctx$2 === void 0 ? void 0 : _ctx$2.value) + "";
+  var t2;
+  var t3;
   var show_if;
   var current_block_type_index;
   var if_block;
@@ -1699,22 +1710,43 @@ function create_default_slot_3(ctx) {
   if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
   var block = {
     c: function create() {
-      t = text("LOPY\n    ");
+      t0 = text(t0_value);
+      t1 = text(" |\n    ");
+      t2 = text(t2_value);
+      t3 = space();
       if_block.c();
       if_block_anchor = empty();
     },
     l: function claim(nodes) {
-      t = claim_text(nodes, "LOPY\n    ");
+      t0 = claim_text(nodes, t0_value);
+      t1 = claim_text(nodes, " |\n    ");
+      t2 = claim_text(nodes, t2_value);
+      t3 = claim_space(nodes);
       if_block.l(nodes);
       if_block_anchor = empty();
     },
     m: function mount(target, anchor) {
-      insert_dev(target, t, anchor);
+      insert_dev(target, t0, anchor);
+      insert_dev(target, t1, anchor);
+      insert_dev(target, t2, anchor);
+      insert_dev(target, t3, anchor);
       if_blocks[current_block_type_index].m(target, anchor);
       insert_dev(target, if_block_anchor, anchor);
       current = true;
     },
     p: function update(ctx, dirty) {
+      var _ctx$3, _ctx$4;
+
+      if ((!current || dirty &
+      /*envelope*/
+      64) && t0_value !== (t0_value =
+      /*envelope*/
+      ((_ctx$3 = ctx[6]) === null || _ctx$3 === void 0 ? void 0 : _ctx$3.name) + "")) set_data_dev(t0, t0_value);
+      if ((!current || dirty &
+      /*envelope*/
+      64) && t2_value !== (t2_value = formatMoney(
+      /*envelope*/
+      (_ctx$4 = ctx[6]) === null || _ctx$4 === void 0 ? void 0 : _ctx$4.value) + "")) set_data_dev(t2, t2_value);
       var previous_block_index = current_block_type_index;
       current_block_type_index = select_block_type(ctx, dirty);
 
@@ -1749,7 +1781,10 @@ function create_default_slot_3(ctx) {
       current = false;
     },
     d: function destroy(detaching) {
-      if (detaching) detach_dev(t);
+      if (detaching) detach_dev(t0);
+      if (detaching) detach_dev(t1);
+      if (detaching) detach_dev(t2);
+      if (detaching) detach_dev(t3);
       if_blocks[current_block_type_index].d(detaching);
       if (detaching) detach_dev(if_block_anchor);
     }
@@ -1758,7 +1793,7 @@ function create_default_slot_3(ctx) {
     block: block,
     id: create_default_slot_3.name,
     type: "slot",
-    source: "(63:2) <TopBar>",
+    source: "(67:2) <TopBar>",
     ctx: ctx
   });
   return block;
@@ -1783,7 +1818,7 @@ function create_catch_block(ctx) {
     ctx: ctx
   });
   return block;
-} // (79:63)      <EnvelopeTransactions       transactions="{transactions}
+} // (84:63)      <EnvelopeTransactions       transactions="{transactions}
 
 
 function create_then_block(ctx) {
@@ -1793,13 +1828,13 @@ function create_then_block(ctx) {
 
   function envelopetransactions_selectedTransactionsById_binding(value) {
     /*envelopetransactions_selectedTransactionsById_binding*/
-    ctx[10].call(null, value);
+    ctx[12].call(null, value);
   }
 
   var envelopetransactions_props = {
     transactions:
     /*transactions*/
-    ctx[17]
+    ctx[19]
   };
 
   if (
@@ -1834,7 +1869,7 @@ function create_then_block(ctx) {
       /*transactionsPaginated*/
       4) envelopetransactions_changes.transactions =
       /*transactions*/
-      ctx[17];
+      ctx[19];
 
       if (!updating_selectedTransactionsById && dirty &
       /*selectedTransactionsById*/
@@ -1867,7 +1902,7 @@ function create_then_block(ctx) {
     block: block,
     id: create_then_block.name,
     type: "then",
-    source: "(79:63)      <EnvelopeTransactions       transactions=\\\"{transactions}",
+    source: "(84:63)      <EnvelopeTransactions       transactions=\\\"{transactions}",
     ctx: ctx
   });
   return block;
@@ -1892,7 +1927,7 @@ function create_pending_block(ctx) {
     ctx: ctx
   });
   return block;
-} // (102:6) <Button         class="w-20"         on:click="{() => {           goto(ROUTES.HOME);         }}"       >
+} // (107:6) <Button         class="w-20"         on:click="{() => {           goto(ROUTES.HOME);         }}"       >
 
 
 function create_default_slot_2(ctx) {
@@ -1915,11 +1950,11 @@ function create_default_slot_2(ctx) {
     block: block,
     id: create_default_slot_2.name,
     type: "slot",
-    source: "(102:6) <Button         class=\\\"w-20\\\"         on:click=\\\"{() => {           goto(ROUTES.HOME);         }}\\\"       >",
+    source: "(107:6) <Button         class=\\\"w-20\\\"         on:click=\\\"{() => {           goto(ROUTES.HOME);         }}\\\"       >",
     ctx: ctx
   });
   return block;
-} // (116:8) {:else}
+} // (121:8) {:else}
 
 
 function create_else_block$1(ctx) {
@@ -1944,7 +1979,7 @@ function create_else_block$1(ctx) {
     },
     h: function hydrate() {
       attr_dev(span, "class", "absolute inset-0 transform translate-y-1/2 top-0 inset-y-1/2");
-      add_location(span, file$4, 116, 10, 3337);
+      add_location(span, file$4, 121, 10, 3542);
     },
     m: function mount(target, anchor) {
       insert_dev(target, span, anchor);
@@ -1980,11 +2015,11 @@ function create_else_block$1(ctx) {
     block: block,
     id: create_else_block$1.name,
     type: "else",
-    source: "(116:8) {:else}",
+    source: "(121:8) {:else}",
     ctx: ctx
   });
   return block;
-} // (111:8) {#if isNegative}
+} // (116:8) {#if isNegative}
 
 
 function create_if_block$2(ctx) {
@@ -2009,7 +2044,7 @@ function create_if_block$2(ctx) {
     },
     h: function hydrate() {
       attr_dev(span, "class", "absolute inset-0 transform translate-y-1/2 top-0 inset-y-1/2");
-      add_location(span, file$4, 111, 10, 3165);
+      add_location(span, file$4, 116, 10, 3370);
     },
     m: function mount(target, anchor) {
       insert_dev(target, span, anchor);
@@ -2045,11 +2080,11 @@ function create_if_block$2(ctx) {
     block: block,
     id: create_if_block$2.name,
     type: "if",
-    source: "(111:8) {#if isNegative}",
+    source: "(116:8) {#if isNegative}",
     ctx: ctx
   });
   return block;
-} // (110:6) <Button class="w-20 relative" on:click="{handleSaveTransaction}">
+} // (115:6) <Button class="w-20 relative" on:click="{handleSaveTransaction}">
 
 
 function create_default_slot_1(ctx) {
@@ -2111,11 +2146,11 @@ function create_default_slot_1(ctx) {
     block: block,
     id: create_default_slot_1.name,
     type: "slot",
-    source: "(110:6) <Button class=\\\"w-20 relative\\\" on:click=\\\"{handleSaveTransaction}\\\">",
+    source: "(115:6) <Button class=\\\"w-20 relative\\\" on:click=\\\"{handleSaveTransaction}\\\">",
     ctx: ctx
   });
   return block;
-} // (62:0) <Page>
+} // (66:0) <Page>
 
 
 function create_default_slot(ctx) {
@@ -2156,7 +2191,7 @@ function create_default_slot(ctx) {
     pending: create_pending_block,
     then: create_then_block,
     catch: create_catch_block,
-    value: 17,
+    value: 19,
     blocks: [,,,]
   };
   handle_promise(promise =
@@ -2165,17 +2200,17 @@ function create_default_slot(ctx) {
 
   function moneyfield_isNegative_binding(value) {
     /*moneyfield_isNegative_binding*/
-    ctx[11].call(null, value);
+    ctx[13].call(null, value);
   }
 
   function moneyfield_value_binding(value) {
     /*moneyfield_value_binding*/
-    ctx[12].call(null, value);
+    ctx[14].call(null, value);
   }
 
   function moneyfield_inputRef_binding(value) {
     /*moneyfield_inputRef_binding*/
-    ctx[13].call(null, value);
+    ctx[15].call(null, value);
   }
 
   var moneyfield_props = {};
@@ -2219,11 +2254,11 @@ function create_default_slot(ctx) {
   });
   moneyfield.$on("enterPressed",
   /*handleMoneyInputEnterPressed*/
-  ctx[6]);
+  ctx[7]);
 
   function textfield_value_binding(value) {
     /*textfield_value_binding*/
-    ctx[14].call(null, value);
+    ctx[16].call(null, value);
   }
 
   var textfield_props = {
@@ -2261,7 +2296,7 @@ function create_default_slot(ctx) {
   });
   button0.$on("click",
   /*click_handler_1*/
-  ctx[15]);
+  ctx[17]);
   button1 = new Button({
     props: {
       class: "w-20 relative",
@@ -2276,7 +2311,7 @@ function create_default_slot(ctx) {
   });
   button1.$on("click",
   /*handleSaveTransaction*/
-  ctx[8]);
+  ctx[9]);
   var block = {
     c: function create() {
       create_component(topbar.$$.fragment);
@@ -2320,9 +2355,9 @@ function create_default_slot(ctx) {
     },
     h: function hydrate() {
       attr_dev(div0, "class", "flex justify-around text-dark");
-      add_location(div0, file$4, 100, 4, 2874);
+      add_location(div0, file$4, 105, 4, 3079);
       attr_dev(div1, "class", "sticky mt-auto mx-2 bottom-2 left-2 right-2 box-border flex flex-col space-y-4 bg-primary rounded-3xl p-4");
-      add_location(div1, file$4, 85, 2, 2358);
+      add_location(div1, file$4, 90, 2, 2563);
     },
     m: function mount(target, anchor) {
       mount_component(topbar, target, anchor);
@@ -2351,8 +2386,8 @@ function create_default_slot(ctx) {
       var topbar_changes = {};
 
       if (dirty &
-      /*$$scope, selectedTransactionsById, id*/
-      262153) {
+      /*$$scope, selectedTransactionsById, id, envelope*/
+      1048649) {
         topbar_changes.$$scope = {
           dirty: dirty,
           ctx: ctx
@@ -2368,7 +2403,7 @@ function create_default_slot(ctx) {
       /*transactionsPaginated*/
       ctx[2].transactions) && handle_promise(promise, info)) ; else {
         var child_ctx = ctx.slice();
-        child_ctx[17] = info.resolved;
+        child_ctx[19] = info.resolved;
         info.block.p(child_ctx, dirty);
       }
 
@@ -2430,7 +2465,7 @@ function create_default_slot(ctx) {
 
       if (dirty &
       /*$$scope*/
-      262144) {
+      1048576) {
         button0_changes.$$scope = {
           dirty: dirty,
           ctx: ctx
@@ -2442,7 +2477,7 @@ function create_default_slot(ctx) {
 
       if (dirty &
       /*$$scope, isNegative*/
-      262176) {
+      1048608) {
         button1_changes.$$scope = {
           dirty: dirty,
           ctx: ctx
@@ -2493,7 +2528,7 @@ function create_default_slot(ctx) {
     block: block,
     id: create_default_slot.name,
     type: "slot",
-    source: "(62:0) <Page>",
+    source: "(66:0) <Page>",
     ctx: ctx
   });
   return block;
@@ -2531,8 +2566,8 @@ function create_fragment$4(ctx) {
       var page_changes = {};
 
       if (dirty &
-      /*$$scope, isNegative, transaction, moneyInput, transactionsPaginated, selectedTransactionsById, id*/
-      262207) {
+      /*$$scope, isNegative, transaction, moneyInput, transactionsPaginated, selectedTransactionsById, id, envelope*/
+      1048703) {
         page_changes.$$scope = {
           dirty: dirty,
           ctx: ctx
@@ -2588,10 +2623,16 @@ var preload = /*#__PURE__*/function () {
 }();
 
 function instance$4($$self, $$props, $$invalidate) {
+  var envelope;
   var $actions;
+  var $envelopes;
   validate_store(actions, "actions");
   component_subscribe($$self, actions, function ($$value) {
-    return $$invalidate(16, $actions = $$value);
+    return $$invalidate(18, $actions = $$value);
+  });
+  validate_store(envelopes, "envelopes");
+  component_subscribe($$self, envelopes, function ($$value) {
+    return $$invalidate(10, $envelopes = $$value);
   });
   var _$$props$$$slots = $$props.$$slots,
       slots = _$$props$$$slots === void 0 ? {} : _$$props$$$slots,
@@ -2734,6 +2775,8 @@ function instance$4($$self, $$props, $$invalidate) {
       Page: Page,
       scale: scale,
       ROUTES: ROUTES,
+      formatMoney: formatMoney,
+      envelopes: envelopes,
       id: id,
       handleMoneyInputEnterPressed: handleMoneyInputEnterPressed,
       handleDelete: handleDelete,
@@ -2743,7 +2786,9 @@ function instance$4($$self, $$props, $$invalidate) {
       selectedTransactionsById: selectedTransactionsById,
       transaction: transaction,
       isNegative: isNegative,
-      $actions: $actions
+      $actions: $actions,
+      envelope: envelope,
+      $envelopes: $envelopes
     };
   };
 
@@ -2754,13 +2799,25 @@ function instance$4($$self, $$props, $$invalidate) {
     if ("selectedTransactionsById" in $$props) $$invalidate(3, selectedTransactionsById = $$props.selectedTransactionsById);
     if ("transaction" in $$props) $$invalidate(4, transaction = $$props.transaction);
     if ("isNegative" in $$props) $$invalidate(5, isNegative = $$props.isNegative);
+    if ("envelope" in $$props) $$invalidate(6, envelope = $$props.envelope);
   };
 
   if ($$props && "$$inject" in $$props) {
     $$self.$inject_state($$props.$$inject);
   }
 
-  return [id, moneyInput, transactionsPaginated, selectedTransactionsById, transaction, isNegative, handleMoneyInputEnterPressed, handleDelete, handleSaveTransaction, click_handler, envelopetransactions_selectedTransactionsById_binding, moneyfield_isNegative_binding, moneyfield_value_binding, moneyfield_inputRef_binding, textfield_value_binding, click_handler_1];
+  $$self.$$.update = function () {
+    if ($$self.$$.dirty &
+    /*$envelopes, id*/
+    1025) {
+       $$invalidate(6, envelope = $envelopes.find(function (_ref7) {
+        var _id = _ref7._id;
+        return _id === id;
+      }));
+    }
+  };
+
+  return [id, moneyInput, transactionsPaginated, selectedTransactionsById, transaction, isNegative, envelope, handleMoneyInputEnterPressed, handleDelete, handleSaveTransaction, $envelopes, click_handler, envelopetransactions_selectedTransactionsById_binding, moneyfield_isNegative_binding, moneyfield_value_binding, moneyfield_inputRef_binding, textfield_value_binding, click_handler_1];
 }
 
 var U5Bidu5D = /*#__PURE__*/function (_SvelteComponentDev) {

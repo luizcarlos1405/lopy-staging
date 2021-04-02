@@ -2692,7 +2692,7 @@ var SOURCES = {
 var SHADOW_ITEM_MARKER_PROPERTY_NAME = "isDndShadowItem";
 var SHADOW_ELEMENT_ATTRIBUTE_NAME = "data-is-dnd-shadow-item";
 var SHADOW_PLACEHOLDER_ITEM_ID = "id:dnd-shadow-placeholder-0000";
-var ITEM_ID_KEY = "_id";
+var ITEM_ID_KEY = "id";
 var activeDndZoneCount = 0;
 function incrementActiveDropZoneCount() {
   activeDndZoneCount++;
@@ -5087,15 +5087,15 @@ var App = /*#__PURE__*/function (_SvelteComponentDev) {
 var ignore = [];
 var components = [{
   js: function js() {
-    return Promise.all([import('./index.4b7fa472.js'), __inject_styles(["client-76e54d79.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./index.2acfec8a.js'), __inject_styles(["client-76e54d79.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./[id].75c3ef82.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-d3f36817.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./[id].8dca109a.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-d3f36817.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./[id].26c0cdde.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-25d8503b.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./[id].78fc9127.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-25d8503b.css"])]).then(function(x) { return x[0]; });
   }
 }];
 var routes = function (d) {

@@ -1,38 +1,4 @@
-import { G as _inherits, H as _getPrototypeOf, J as _possibleConstructorReturn, K as _classCallCheck, L as init, M as safe_not_equal, N as _assertThisInitialized, O as dispatch_dev, Q as SvelteComponentDev, as as create_slot, R as validate_slots, U as element, X as claim_element, Y as children, $ as detach_dev, a1 as attr_dev, a2 as add_location, a3 as insert_dev, ad as _slicedToArray, at as update_slot, ae as transition_in, af as transition_out, _ as _toConsumableArray, F as _typeof, au as createCommonjsModule, av as writable, aw as readable, ax as regenerator, c as _defineProperty, ay as add_render_callback, az as create_in_transition } from './client.f6f5012b.js';
-
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
-
-function _objectWithoutProperties(source, excluded) {
-  if (source == null) return {};
-  var target = _objectWithoutPropertiesLoose(source, excluded);
-  var key, i;
-
-  if (Object.getOwnPropertySymbols) {
-    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-
-    for (i = 0; i < sourceSymbolKeys.length; i++) {
-      key = sourceSymbolKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-      target[key] = source[key];
-    }
-  }
-
-  return target;
-}
+import { F as _inherits, G as _getPrototypeOf, H as _possibleConstructorReturn, J as _classCallCheck, K as init, L as safe_not_equal, M as _assertThisInitialized, N as dispatch_dev, P as SvelteComponentDev, ar as create_slot, Q as validate_slots, R as element, W as claim_element, X as children, Z as detach_dev, a0 as attr_dev, a1 as add_location, a2 as insert_dev, ac as _slicedToArray, as as update_slot, ad as transition_in, ae as transition_out, at as _toConsumableArray, au as _typeof, av as createCommonjsModule, aw as writable, ax as readable, ay as regenerator, az as add_render_callback, aA as create_in_transition } from './client.2be03181.js';
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
@@ -188,6 +154,55 @@ var formatMoney = function formatMoney(value) {
 var isClient = function isClient() {
   return typeof window !== 'undefined';
 };
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+  var target = _objectWithoutPropertiesLoose(source, excluded);
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
   try {
@@ -14457,4 +14472,4 @@ var ROUTES = {
   EDIT: "".concat(BASE_URL, "/envelope/edit")
 };
 
-export { Page as P, ROUTES as R, TopBar as T, _objectWithoutProperties as _, actions as a, _asyncToGenerator as b, cubicOut as c, stripNonDigits as d, envelopes as e, formatMoney as f, expoOut as g, expoIn as h, isClient as i, luxon as l, scale as s };
+export { Page as P, ROUTES as R, TopBar as T, _asyncToGenerator as _, actions as a, _defineProperty as b, cubicOut as c, _objectWithoutProperties as d, envelopes as e, formatMoney as f, stripNonDigits as g, expoOut as h, expoIn as i, isClient as j, luxon as l, scale as s };

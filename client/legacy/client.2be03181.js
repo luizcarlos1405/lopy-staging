@@ -2581,6 +2581,41 @@ function _defineProperty(obj, key, value) {
   return obj;
 }
 
+function _arrayLikeToArray$1(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+function _arrayWithoutHoles$1(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray$1(arr);
+}
+
+function _iterableToArray$1(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+
+function _unsupportedIterableToArray$1(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray$1(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$1(o, minLen);
+}
+
+function _nonIterableSpread$1() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _toConsumableArray$1(arr) {
+  return _arrayWithoutHoles$1(arr) || _iterableToArray$1(arr) || _unsupportedIterableToArray$1(arr) || _nonIterableSpread$1();
+}
+
 // external events
 var FINALIZE_EVENT_NAME = "finalize";
 var CONSIDER_EVENT_NAME = "consider";
@@ -3191,11 +3226,11 @@ function areArraysShallowEqualSameOrder(arrA, arrB) {
   return true;
 }
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray$1(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray$2(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
-function _unsupportedIterableToArray$1(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray$1(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$1(o, minLen); }
+function _unsupportedIterableToArray$2(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray$2(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$2(o, minLen); }
 
-function _arrayLikeToArray$1(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _arrayLikeToArray$2(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 var INTERVAL_MS = 200;
 var TOLERANCE_PX = 10;
 
@@ -3568,6 +3603,45 @@ function preventShrinking(el) {
   };
 }
 
+function _arrayWithHoles$1(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArrayLimit$1(arr, i) {
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _nonIterableRest$1() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _slicedToArray$1(arr, i) {
+  return _arrayWithHoles$1(arr) || _iterableToArrayLimit$1(arr, i) || _unsupportedIterableToArray$1(arr, i) || _nonIterableRest$1();
+}
+
 var _ID_TO_INSTRUCTION;
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -3602,7 +3676,7 @@ function initAriaOnBrowser() {
   document.body.prepend(alertsDiv); // setting the instructions
 
   Object.entries(ID_TO_INSTRUCTION).forEach(function (_ref) {
-    var _ref2 = _slicedToArray(_ref, 2),
+    var _ref2 = _slicedToArray$1(_ref, 2),
         id = _ref2[0],
         txt = _ref2[1];
 
@@ -3993,7 +4067,7 @@ function dndzone(node, options) {
         dropTargetClasses = _ref2$dropTargetClass === void 0 ? [] : _ref2$dropTargetClass,
         _ref2$autoAriaDisable = _ref2.autoAriaDisabled,
         autoAriaDisabled = _ref2$autoAriaDisable === void 0 ? false : _ref2$autoAriaDisable;
-    config.items = _toConsumableArray(items);
+    config.items = _toConsumableArray$1(items);
     config.dragDisabled = dragDisabled;
     config.dropFromOthersDisabled = dropFromOthersDisabled;
     config.dropTargetStyle = dropTargetStyle;
@@ -5087,15 +5161,15 @@ var App = /*#__PURE__*/function (_SvelteComponentDev) {
 var ignore = [];
 var components = [{
   js: function js() {
-    return Promise.all([import('./index.2acfec8a.js'), __inject_styles(["client-76e54d79.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./index.35acf54c.js'), __inject_styles(["client-76e54d79.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./[id].8dca109a.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-d3f36817.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./[id].0b8f6fc2.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-d3f36817.css"])]).then(function(x) { return x[0]; });
   }
 }, {
   js: function js() {
-    return Promise.all([import('./[id].78fc9127.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-25d8503b.css"])]).then(function(x) { return x[0]; });
+    return Promise.all([import('./[id].64873d60.js'), __inject_styles(["client-76e54d79.css","Button-45434da4.css","[id]-25d8503b.css"])]).then(function(x) { return x[0]; });
   }
 }];
 var routes = function (d) {
@@ -6016,6 +6090,6 @@ start$1({
   target: document.body
 });
 
-export { detach_dev as $, dispatchFinalizeEvent as A, unDecorateShadowElement as B, dndzone as C, DRAGGED_ENTERED_EVENT_NAME as D, toString as E, _typeof as F, _inherits as G, _getPrototypeOf as H, ITEM_ID_KEY as I, _possibleConstructorReturn as J, _classCallCheck as K, init as L, safe_not_equal as M, _assertThisInitialized as N, dispatch_dev as O, _createClass as P, SvelteComponentDev as Q, validate_slots as R, SHADOW_ITEM_MARKER_PROPERTY_NAME as S, TRIGGERS as T, element as U, text as V, space as W, claim_element as X, children as Y, claim_text as Z, _toConsumableArray as _, SHADOW_PLACEHOLDER_ITEM_ID as a, claim_space as a0, attr_dev as a1, add_location as a2, insert_dev as a3, append_dev as a4, listen_dev as a5, noop as a6, bubble as a7, validate_each_argument as a8, validate_each_keys as a9, svg_element as aA, globals as aB, destroy_each as aC, empty as aD, HtmlTag as aE, toggle_class as aF, set_data_dev as aG, binding_callbacks as aH, bind as aI, add_flush_callback as aJ, compute_rest_props as aK, assign as aL, exclude_internal_props as aM, set_attributes as aN, set_input_value as aO, get_spread_update as aP, fix_position as aQ, add_transform as aR, create_animation as aS, create_out_transition as aT, fix_and_outro_and_destroy_block as aU, create_bidirectional_transition as aV, createEventDispatcher as aW, handle_promise as aX, create_component as aa, claim_component as ab, mount_component as ac, _slicedToArray as ad, transition_in as ae, transition_out as af, destroy_component as ag, validate_store as ah, component_subscribe as ai, goto as aj, action_destroyer as ak, group_outros as al, update_keyed_each as am, check_outros as an, is_function as ao, run_all as ap, set_store_value as aq, outro_and_destroy_block as ar, create_slot as as, update_slot as at, createCommonjsModule as au, writable as av, readable as aw, regenerator as ax, add_render_callback as ay, create_in_transition as az, decorateShadowEl as b, _defineProperty as c, decrementActiveDropZoneCount as d, createDraggedElementFrom as e, styleActiveDropZones as f, dispatchConsiderEvent as g, SOURCES as h, incrementActiveDropZoneCount as i, areObjectsShallowEqual as j, areArraysShallowEqualSameOrder as k, styleInactiveDropZones as l, morphDraggedElementToBeLike as m, moveDraggedElementToWasDroppedState as n, getBoundingRectNoTransforms as o, preventShrinking as p, hideOriginalDragTarget as q, armWindowScroller as r, styleDraggable as s, DRAGGED_LEFT_EVENT_NAME as t, DRAGGED_OVER_INDEX_EVENT_NAME as u, DRAGGED_LEFT_DOCUMENT_EVENT_NAME as v, observe as w, disarmWindowScroller as x, unobserve as y, DRAGGED_LEFT_TYPES as z };
+export { claim_space as $, dispatchFinalizeEvent as A, unDecorateShadowElement as B, dndzone as C, DRAGGED_ENTERED_EVENT_NAME as D, toString as E, _inherits as F, _getPrototypeOf as G, _possibleConstructorReturn as H, ITEM_ID_KEY as I, _classCallCheck as J, init as K, safe_not_equal as L, _assertThisInitialized as M, dispatch_dev as N, _createClass as O, SvelteComponentDev as P, validate_slots as Q, element as R, SHADOW_ITEM_MARKER_PROPERTY_NAME as S, TRIGGERS as T, text as U, space as V, claim_element as W, children as X, claim_text as Y, detach_dev as Z, _toConsumableArray$1 as _, SHADOW_PLACEHOLDER_ITEM_ID as a, attr_dev as a0, add_location as a1, insert_dev as a2, append_dev as a3, listen_dev as a4, noop as a5, bubble as a6, validate_each_argument as a7, validate_each_keys as a8, create_component as a9, create_in_transition as aA, svg_element as aB, globals as aC, destroy_each as aD, empty as aE, HtmlTag as aF, toggle_class as aG, set_data_dev as aH, binding_callbacks as aI, bind as aJ, add_flush_callback as aK, compute_rest_props as aL, assign as aM, exclude_internal_props as aN, set_attributes as aO, set_input_value as aP, get_spread_update as aQ, fix_position as aR, add_transform as aS, create_animation as aT, create_out_transition as aU, fix_and_outro_and_destroy_block as aV, create_bidirectional_transition as aW, createEventDispatcher as aX, handle_promise as aY, claim_component as aa, mount_component as ab, _slicedToArray as ac, transition_in as ad, transition_out as ae, destroy_component as af, validate_store as ag, component_subscribe as ah, goto as ai, action_destroyer as aj, group_outros as ak, update_keyed_each as al, check_outros as am, is_function as an, run_all as ao, set_store_value as ap, outro_and_destroy_block as aq, create_slot as ar, update_slot as as, _toConsumableArray as at, _typeof as au, createCommonjsModule as av, writable as aw, readable as ax, regenerator as ay, add_render_callback as az, decorateShadowEl as b, _defineProperty as c, decrementActiveDropZoneCount as d, createDraggedElementFrom as e, styleActiveDropZones as f, dispatchConsiderEvent as g, SOURCES as h, incrementActiveDropZoneCount as i, areObjectsShallowEqual as j, areArraysShallowEqualSameOrder as k, styleInactiveDropZones as l, morphDraggedElementToBeLike as m, moveDraggedElementToWasDroppedState as n, getBoundingRectNoTransforms as o, preventShrinking as p, hideOriginalDragTarget as q, armWindowScroller as r, styleDraggable as s, DRAGGED_LEFT_EVENT_NAME as t, DRAGGED_OVER_INDEX_EVENT_NAME as u, DRAGGED_LEFT_DOCUMENT_EVENT_NAME as v, observe as w, disarmWindowScroller as x, unobserve as y, DRAGGED_LEFT_TYPES as z };
 
 import __inject_styles from './inject_styles.fe622066.js';

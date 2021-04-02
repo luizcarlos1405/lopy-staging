@@ -1,4 +1,4 @@
-import { F as _inherits, G as _getPrototypeOf, H as _possibleConstructorReturn, J as _classCallCheck, K as init, L as safe_not_equal, M as _assertThisInitialized, N as dispatch_dev, P as SvelteComponentDev, at as create_slot, Q as validate_slots, R as element, W as claim_element, X as children, Z as detach_dev, a0 as attr_dev, a1 as add_location, a2 as insert_dev, ac as _slicedToArray, au as update_slot, ad as transition_in, ae as transition_out, av as _toConsumableArray, aw as _typeof, ax as createCommonjsModule, ay as writable, az as readable, aA as regenerator, aB as add_render_callback, aC as create_in_transition } from './client.cf65d001.js';
+import { F as _inherits, G as _getPrototypeOf, H as _possibleConstructorReturn, J as _classCallCheck, K as init, L as safe_not_equal, M as _assertThisInitialized, N as dispatch_dev, P as SvelteComponentDev, at as create_slot, Q as validate_slots, R as element, W as claim_element, X as children, Z as detach_dev, a0 as attr_dev, a1 as add_location, a2 as insert_dev, ac as _slicedToArray, au as update_slot, ad as transition_in, ae as transition_out, av as _toConsumableArray, aw as _typeof, ax as createCommonjsModule, ay as writable, az as readable, aA as regenerator, aB as add_render_callback, aC as create_in_transition } from './client.c7d2c4c8.js';
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
@@ -14032,7 +14032,7 @@ var refreshEnvelopes = function refreshEnvelopes() {
 
 if (isClient()) {
   db = new Dexie('lopy');
-  db.version(1).stores({
+  db.version(2).stores({
     envelopes: '_id,order',
     transactions: '_id,envelopeId,date'
   }); // Log current db content
